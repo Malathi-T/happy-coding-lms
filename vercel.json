@@ -1,1 +1,1 @@
-{"version":2,"rewrites":[{"source":"/","destination":"/happy-coding-1234.html"}]}
+{"version":2,"builds":[{"src":"happy-coding-1234.html","use":"@vercel/static"}],"routes":[{"src":"/","dest":"/happy-coding-1234.html"}]}

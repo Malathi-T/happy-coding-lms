@@ -1,0 +1,10 @@
+manage.py
+lms_project/
+client/
+server/
+users/
+courses/
+progress/
+db.sqlite3
+setup_lms.py
+requirements.txt
