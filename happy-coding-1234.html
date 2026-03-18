@@ -24,7 +24,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* ── PAGE SYSTEM ── */
 .page{display:none;}
-.page.active{display:block;}
+#login-page.active{display:flex !important;}
+#main-page.active{display:block;}
 
 /* ── LOGIN PAGE ── */
 .login-page{min-height:100vh;background:linear-gradient(135deg,#2d0b60,#4c1d95,#701a75,#92400e);display:flex;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden;}
@@ -238,8 +239,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .xbtn{background:var(--bg);border:1.5px solid var(--border);width:30px;height:30px;border-radius:50%;cursor:pointer;color:var(--textm);font-size:17px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
 .xbtn:hover{background:var(--bg2);color:var(--purple);}
 .mbody{padding:1.5rem;}
-.vid-wrap{border-radius:14px;overflow:hidden;background:#000;margin-bottom:0.75rem;border:1.5px solid var(--border);}
+.vid-wrap{border-radius:14px;overflow:hidden;background:#000;margin-bottom:0.75rem;border:1.5px solid var(--border);position:relative;}
 .vid-wrap iframe{width:100%;height:255px;display:block;border:none;}
+#video-fallback,
+#playlist-fallback{
+  position:absolute;
+  inset:0;
+  background:#1e1e2e;
+  border-radius:14px;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:1.5rem;
+  text-align:center;
+}
 /* Live progress tracker inside modal */
 .live-progress-box{background:var(--bg2);border:1.5px solid var(--border2);border-radius:12px;padding:12px 16px;margin-bottom:1rem;}
 .lpb-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
@@ -474,12 +488,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div class="mhdr"><div class="mhdr-title" id="preview-title"></div><button class="xbtn" onclick="closeVideoModal()">×</button></div>
     <div class="mbody">
       <div class="vid-wrap" style="position:relative;">
-        <iframe id="preview-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-        <div id="video-fallback" style="display:none;position:absolute;inset:0;background:#1e1e2e;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;">
+        <iframe id="vid-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+        <div id="video-fallback" style="display:none">
           <div style="font-size:36px;margin-bottom:12px;">🚫</div>
           <div style="color:#e9d5ff;font-family:'Playfair Display',serif;font-weight:700;font-size:15px;margin-bottom:8px;">Video Unavailable for Embed</div>
           <div style="color:rgba(255,255,255,0.55);font-size:12px;margin-bottom:16px;">This video has embedding disabled by the creator.</div>
           <a id="video-fallback-link" href="#" target="_blank" style="background:linear-gradient(135deg,#7c3aed,#db2777);color:white;text-decoration:none;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:500;">▶ Watch on YouTube →</a>
+        </div>
+        <div id="playlist-fallback" style="display:none">
+          <div id="playlist-title" style="color:#fde68a;font-family:'Playfair Display',serif;font-weight:900;font-size:16px;margin-bottom:8px;">📺 CareerRide Channel · 1.3M subscribers · 869+ videos</div>
+          <div style="color:rgba(255,255,255,0.55);font-size:12px;margin-bottom:16px;">This course links to the full CareerRide YouTube channel.</div>
+          <a id="playlist-main-link" href="https://www.youtube.com/@CareerRide" target="_blank" style="background:linear-gradient(135deg,#7c3aed,#db2777);color:white;text-decoration:none;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;display:inline-block;margin-bottom:8px;">▶ Open CareerRide Channel →</a>
+          <a id="playlist-all-link" href="https://www.youtube.com/@CareerRide/playlists" target="_blank" style="color:#c4b5fd;font-size:12px;text-decoration:none;display:inline-block;">📋 View All Playlists</a>
         </div>
       </div>
       <div class="live-progress-box" id="live-progress-box" style="display:none;">
@@ -900,13 +920,36 @@ function removeFromCart(id) { cart=cart.filter(x=>x.id!==id); updateCartUI(); op
 // ── IFRAME ERROR DETECTION ──
 window.addEventListener('message', function(e) {
   if(e.data && e.data.event === 'onError') {
-    showVideoFallback();
+    const c = courses.find(x=>x.id===currentPreviewId);
+    showVideoFallback(c);
   }
 });
 
-function showVideoFallback() {
-  document.getElementById('preview-iframe').style.display = 'none';
-  document.getElementById('video-fallback').style.display = 'flex';
+function showVideoFallback(course) {
+  const iframe = document.getElementById('vid-iframe');
+  const vf = document.getElementById('video-fallback');
+  const pf = document.getElementById('playlist-fallback');
+  if (!iframe || !vf || !pf) return;
+
+  iframe.style.display = 'none';
+  iframe.src = '';
+  vf.style.display = 'none';
+  pf.style.display = 'none';
+
+  if (course && course.isPlaylist) {
+    pf.style.display = 'flex';
+    const t = document.getElementById('playlist-title');
+    const main = document.getElementById('playlist-main-link');
+    const all = document.getElementById('playlist-all-link');
+    if (t) t.textContent = '📺 CareerRide Channel · 1.3M subscribers · 869+ videos';
+    if (main) main.href = course.url || 'https://www.youtube.com/@CareerRide';
+    if (all) all.href = (course.url || 'https://www.youtube.com/@CareerRide') + '/playlists';
+    return;
+  }
+
+  vf.style.display = 'flex';
+  const link = document.getElementById('video-fallback-link');
+  if (link && course) link.href = course.url || (course.ytId ? ('https://www.youtube.com/watch?v=' + course.ytId) : '#');
 }
 
 // ── PREVIEW ──
@@ -918,25 +961,20 @@ function openPreview(id) {
   document.getElementById('preview-desc').textContent = c.desc;
 
   // Reset video state
-  const iframe = document.getElementById('preview-iframe');
+  const iframe = document.getElementById('vid-iframe');
   const fallback = document.getElementById('video-fallback');
-  document.getElementById('video-fallback-link').href = c.url;
+  const playlistFallback = document.getElementById('playlist-fallback');
+  const fallbackLink = document.getElementById('video-fallback-link');
+  if (!iframe || !fallback || !playlistFallback || !fallbackLink) return;
+  iframe.style.display = 'block';
+  iframe.src = '';
+  fallback.style.display = 'none';
+  playlistFallback.style.display = 'none';
+  fallbackLink.href = c.url || (c.ytId ? ('https://www.youtube.com/watch?v=' + c.ytId) : '#');
 
   // If this is a channel/playlist (no single embeddable video), show special card
   if(c.isPlaylist) {
-    iframe.style.display = 'none';
-    fallback.style.display = 'flex';
-    fallback.style.background = 'linear-gradient(135deg,#1e0b3a,#2d1060)';
-    document.getElementById('video-fallback').innerHTML = `
-      <div style="text-align:center;padding:1.5rem;">
-        <div style="font-size:44px;margin-bottom:12px;">📺</div>
-        <div style="color:#e9d5ff;font-family:'Playfair Display',serif;font-weight:700;font-size:16px;margin-bottom:8px;">${c.title}</div>
-        <div style="color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:6px;">by <strong style="color:#fde68a;">CareerRide</strong> · 1.3M subscribers · 869+ videos</div>
-        <div style="color:rgba(255,255,255,0.5);font-size:12px;margin-bottom:18px;">This course links to the full CareerRide YouTube channel<br>with 100+ aptitude & reasoning topic videos</div>
-        <a href="${c.url}" target="_blank" style="background:linear-gradient(135deg,#7c3aed,#db2777);color:white;text-decoration:none;padding:11px 24px;border-radius:12px;font-size:13px;font-weight:600;display:inline-block;margin-bottom:8px;">▶ Open CareerRide Channel →</a>
-        <br>
-        <a href="https://www.youtube.com/@CareerRide/playlists" target="_blank" style="color:#c4b5fd;font-size:12px;text-decoration:none;margin-top:8px;display:inline-block;">📋 View All Playlists</a>
-      </div>`;
+    showVideoFallback(c);
     clearTimeout(window._vidTimeout);
     show('preview-modal');
     return;
@@ -944,6 +982,7 @@ function openPreview(id) {
 
   iframe.style.display = 'block';
   fallback.style.display = 'none';
+  playlistFallback.style.display = 'none';
 
   // Load video
   iframe.src = `https://www.youtube.com/embed/${c.ytId}?enablejsapi=1&rel=0`;
@@ -954,8 +993,7 @@ function openPreview(id) {
     try {
       const iDoc = iframe.contentDocument || iframe.contentWindow?.document;
       if(!iDoc || iDoc.title === '' || iDoc.title.includes('refused')) {
-        showVideoFallback();
-        document.getElementById('video-fallback-link').href = c.url;
+        showVideoFallback(c);
       }
     } catch(e) {
       // Cross-origin — video is loading fine
