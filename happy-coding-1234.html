@@ -24,8 +24,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* ── PAGE SYSTEM ── */
 .page{display:none;}
-#login-page.active{display:flex !important;}
-#main-page.active{display:block;}
+.page.active{display:block;}
 
 /* ── LOGIN PAGE ── */
 .login-page{min-height:100vh;background:linear-gradient(135deg,#2d0b60,#4c1d95,#701a75,#92400e);display:flex;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden;}
@@ -62,6 +61,120 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .logo .h{background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .logo .c{background:linear-gradient(90deg,var(--pink),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;}
 .nav-right{display:flex;align-items:center;gap:10px;}
+/* ── UDEMY FEATURES CSS ── */
+/* Notification Bell */
+.notif-wrap{position:relative;cursor:pointer;}
+.notif-btn{width:38px;height:38px;border-radius:50%;background:var(--bg2);border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:17px;cursor:pointer;transition:all 0.2s;position:relative;}
+.notif-btn:hover{background:var(--bg3);}
+.notif-dot{position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:var(--pink);border:2px solid white;animation:blink 1.5s infinite;}
+.notif-panel{position:absolute;top:46px;right:0;width:320px;background:white;border:1.5px solid var(--border);border-radius:16px;box-shadow:0 12px 40px rgba(124,58,237,0.15);z-index:500;display:none;overflow:hidden;}
+.notif-panel.show{display:block;animation:mIn 0.2s ease;}
+.notif-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.notif-header span{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:var(--dark);}
+.notif-clear{font-size:11px;color:var(--purple);cursor:pointer;background:none;border:none;font-family:'DM Sans',sans-serif;}
+.notif-item{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;transition:background 0.15s;}
+.notif-item:hover{background:var(--bg);}
+.notif-item.unread{background:#faf5ff;}
+.notif-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.notif-text{font-size:12px;color:var(--textm);line-height:1.5;flex:1;}
+.notif-text strong{color:var(--dark);}
+.notif-time{font-size:10px;color:var(--textl);margin-top:3px;}
+.notif-empty{padding:2rem;text-align:center;color:var(--textl);font-size:13px;}
+
+/* Bestseller/New/Hot badges */
+.course-badge{position:absolute;bottom:10px;left:10px;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;font-family:'DM Sans',sans-serif;}
+.badge-bestseller{background:#f59e0b;color:white;}
+.badge-new{background:#10b981;color:white;}
+.badge-hot{background:#ef4444;color:white;}
+.badge-trending{background:#8b5cf6;color:white;}
+
+/* Star ratings */
+.card-rating{display:flex;align-items:center;gap:5px;margin-bottom:8px;}
+.stars{color:#f59e0b;font-size:13px;letter-spacing:1px;}
+.rating-val{font-size:12px;font-weight:600;color:#92400e;}
+.rating-count{font-size:11px;color:var(--textl);}
+
+/* What you'll learn */
+.learn-section{margin-bottom:10px;}
+.learn-toggle{font-size:11px;color:var(--purple);cursor:pointer;background:none;border:none;font-family:'DM Sans',sans-serif;padding:0;display:flex;align-items:center;gap:4px;font-weight:500;}
+.learn-list{display:none;margin-top:6px;padding:8px 10px;background:var(--bg2);border-radius:8px;border:1px solid var(--border);}
+.learn-list.show{display:block;}
+.learn-item{font-size:11px;color:var(--textm);padding:2px 0;display:flex;align-items:flex-start;gap:5px;line-height:1.4;}
+.learn-item::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+
+/* Category tabs */
+.cat-tab.active{color:var(--purple);}
+
+/* Coupon code */
+.coupon-wrap{margin-bottom:1rem;}
+.coupon-row{display:flex;gap:8px;}
+.coupon-input{flex:1;padding:9px 12px;border:1.5px dashed var(--border2);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;background:var(--bg);}
+.coupon-input:focus{border-color:var(--purple);border-style:solid;}
+.btn-coupon{padding:9px 16px;background:linear-gradient(135deg,var(--purple),var(--pink));color:white;border:none;border-radius:10px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;}
+.coupon-success{font-size:11px;color:var(--green);margin-top:5px;display:none;font-weight:500;}
+.coupon-error{font-size:11px;color:var(--red);margin-top:5px;display:none;}
+.discount-row{display:flex;justify-content:space-between;font-size:13px;padding:3px 0;color:var(--green);font-weight:500;}
+
+/* Certificate modal */
+.cert-wrap{text-align:center;padding:1rem;}
+.cert-card{background:linear-gradient(135deg,#1e0b3a,#2d1060,#4c1d95);border-radius:20px;padding:2.5rem 2rem;margin-bottom:1.25rem;position:relative;overflow:hidden;}
+.cert-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(245,158,11,0.2),transparent 70%);pointer-events:none;}
+.cert-inner{position:relative;z-index:1;}
+.cert-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:18px;color:rgba(255,255,255,0.8);margin-bottom:1rem;letter-spacing:1px;}
+.cert-title{font-family:'Playfair Display',serif;font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;}
+.cert-name{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:#fde68a;margin-bottom:0.5rem;}
+.cert-course{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:white;margin-bottom:1rem;}
+.cert-date{font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:1rem;}
+.cert-seal{font-size:36px;}
+.cert-divider{height:1px;background:rgba(255,255,255,0.15);margin:1rem 0;}
+.cert-stars{color:#f59e0b;font-size:18px;letter-spacing:3px;}
+.btn-download-cert{width:100%;padding:12px;background:linear-gradient(135deg,var(--amber),var(--pink));color:white;border:none;border-radius:12px;font-family:'Playfair Display',serif;font-weight:700;font-size:15px;cursor:pointer;margin-bottom:8px;transition:all 0.2s;box-shadow:0 4px 14px rgba(245,158,11,0.3);}
+.btn-download-cert:hover{box-shadow:0 8px 24px rgba(245,158,11,0.4);transform:translateY(-1px);}
+
+/* QA Section */
+.qa-section{margin-top:1rem;border-top:1.5px solid var(--border);padding-top:1rem;}
+.qa-title{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:var(--dark);margin-bottom:0.75rem;display:flex;align-items:center;gap:6px;}
+.qa-input-wrap{display:flex;gap:8px;margin-bottom:0.75rem;}
+.qa-input{flex:1;padding:9px 13px;border:1.5px solid var(--border2);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;}
+.qa-input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(124,58,237,0.08);}
+.btn-qa-post{padding:9px 16px;background:linear-gradient(135deg,var(--purple),var(--pink));color:white;border:none;border-radius:10px;font-size:12px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;}
+.qa-item{background:var(--bg);border-radius:10px;padding:10px 12px;margin-bottom:8px;border:1px solid var(--border);}
+.qa-item-header{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.qa-avatar{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:700;flex-shrink:0;}
+.qa-user{font-size:12px;font-weight:600;color:var(--dark);}
+.qa-time{font-size:10px;color:var(--textl);}
+.qa-text{font-size:13px;color:var(--textm);line-height:1.6;}
+.qa-reply-btn{font-size:11px;color:var(--purple);cursor:pointer;background:none;border:none;font-family:'DM Sans',sans-serif;margin-top:4px;padding:0;}
+
+/* Review section in course modal */
+.reviews-section{margin-top:1rem;border-top:1.5px solid var(--border);padding-top:1rem;}
+.reviews-title{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:var(--dark);margin-bottom:0.75rem;}
+.rating-summary{display:flex;align-items:center;gap:16px;margin-bottom:1rem;padding:12px;background:var(--bg);border-radius:12px;}
+.rating-big{text-align:center;}
+.rating-big-num{font-family:'Playfair Display',serif;font-weight:700;font-size:36px;color:var(--amber);}
+.rating-big-stars{color:var(--amber);font-size:16px;}
+.rating-big-count{font-size:11px;color:var(--textl);margin-top:2px;}
+.rating-bars{flex:1;}
+.rbar-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.rbar-label{font-size:11px;color:var(--textm);width:30px;text-align:right;}
+.rbar-wrap{flex:1;height:5px;background:#e5e7eb;border-radius:3px;overflow:hidden;}
+.rbar-fill{height:100%;background:var(--amber);border-radius:3px;}
+.rbar-pct{font-size:10px;color:var(--textl);width:28px;}
+.review-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.review-item:last-child{border-bottom:none;}
+.review-header{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.review-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:700;flex-shrink:0;}
+.review-user{font-size:12px;font-weight:600;color:var(--dark);}
+.review-stars{color:var(--amber);font-size:11px;letter-spacing:1px;}
+.review-date{font-size:10px;color:var(--textl);}
+.review-text{font-size:13px;color:var(--textm);line-height:1.6;}
+.write-review{margin-top:0.75rem;}
+.star-select{display:flex;gap:4px;margin-bottom:8px;}
+.star-btn{font-size:20px;cursor:pointer;background:none;border:none;color:#d1d5db;transition:color 0.15s;}
+.star-btn.active{color:var(--amber);}
+.review-textarea{width:100%;padding:9px 12px;border:1.5px solid var(--border2);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;min-height:70px;resize:vertical;outline:none;color:var(--text);}
+.review-textarea:focus{border-color:var(--purple);}
+.btn-submit-review{margin-top:6px;padding:8px 18px;background:linear-gradient(135deg,var(--purple),var(--pink));color:white;border:none;border-radius:10px;font-size:12px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;}
 .nav-btn{background:linear-gradient(135deg,rgba(124,58,237,0.09),rgba(219,39,119,0.07));border:1.5px solid var(--border2);color:var(--purple);padding:8px 16px;border-radius:11px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all 0.2s;}
 .nav-btn:hover{background:linear-gradient(135deg,rgba(124,58,237,0.17),rgba(219,39,119,0.12));box-shadow:0 4px 16px rgba(124,58,237,0.2);}
 .cart-count{background:linear-gradient(135deg,var(--pink),var(--amber2));color:white;font-size:10px;font-weight:700;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
@@ -239,21 +352,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .xbtn{background:var(--bg);border:1.5px solid var(--border);width:30px;height:30px;border-radius:50%;cursor:pointer;color:var(--textm);font-size:17px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
 .xbtn:hover{background:var(--bg2);color:var(--purple);}
 .mbody{padding:1.5rem;}
-.vid-wrap{border-radius:14px;overflow:hidden;background:#000;margin-bottom:0.75rem;border:1.5px solid var(--border);position:relative;}
+.vid-wrap{border-radius:14px;overflow:hidden;background:#000;margin-bottom:0.75rem;border:1.5px solid var(--border);}
 .vid-wrap iframe{width:100%;height:255px;display:block;border:none;}
-#video-fallback,
-#playlist-fallback{
-  position:absolute;
-  inset:0;
-  background:#1e1e2e;
-  border-radius:14px;
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:1.5rem;
-  text-align:center;
-}
 /* Live progress tracker inside modal */
 .live-progress-box{background:var(--bg2);border:1.5px solid var(--border2);border-radius:12px;padding:12px 16px;margin-bottom:1rem;}
 .lpb-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
@@ -387,6 +487,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <button class="nav-tab" id="tab-dashboard" onclick="showTab('dashboard')">📊 My Learning</button>
     </div>
     <div class="nav-right">
+      <!-- Notification Bell -->
+      <div class="notif-wrap" id="notif-wrap">
+        <button class="notif-btn" onclick="toggleNotif()" title="Notifications">
+          🔔<span class="notif-dot" id="notif-dot"></span>
+        </button>
+        <div class="notif-panel" id="notif-panel">
+          <div class="notif-header">
+            <span>Notifications</span>
+            <button class="notif-clear" onclick="clearNotifs()">Clear all</button>
+          </div>
+          <div id="notif-list"></div>
+        </div>
+      </div>
       <button class="nav-btn" onclick="openCart()">🛒 Cart <span class="cart-count hidden" id="cart-count">0</span></button>
       <div class="user-avatar" id="user-avatar" onclick="doLogout()" title="Click to logout">?</div>
     </div>
@@ -488,18 +601,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div class="mhdr"><div class="mhdr-title" id="preview-title"></div><button class="xbtn" onclick="closeVideoModal()">×</button></div>
     <div class="mbody">
       <div class="vid-wrap" style="position:relative;">
-        <iframe id="vid-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-        <div id="video-fallback" style="display:none">
+        <iframe id="preview-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+        <div id="video-fallback" style="display:none;position:absolute;inset:0;background:#1e1e2e;border-radius:14px;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;">
           <div style="font-size:36px;margin-bottom:12px;">🚫</div>
           <div style="color:#e9d5ff;font-family:'Playfair Display',serif;font-weight:700;font-size:15px;margin-bottom:8px;">Video Unavailable for Embed</div>
           <div style="color:rgba(255,255,255,0.55);font-size:12px;margin-bottom:16px;">This video has embedding disabled by the creator.</div>
           <a id="video-fallback-link" href="#" target="_blank" style="background:linear-gradient(135deg,#7c3aed,#db2777);color:white;text-decoration:none;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:500;">▶ Watch on YouTube →</a>
         </div>
-        <div id="playlist-fallback" style="display:none">
-          <div id="playlist-title" style="color:#fde68a;font-family:'Playfair Display',serif;font-weight:900;font-size:16px;margin-bottom:8px;">📺 CareerRide Channel · 1.3M subscribers · 869+ videos</div>
-          <div style="color:rgba(255,255,255,0.55);font-size:12px;margin-bottom:16px;">This course links to the full CareerRide YouTube channel.</div>
-          <a id="playlist-main-link" href="https://www.youtube.com/@CareerRide" target="_blank" style="background:linear-gradient(135deg,#7c3aed,#db2777);color:white;text-decoration:none;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;display:inline-block;margin-bottom:8px;">▶ Open CareerRide Channel →</a>
-          <a id="playlist-all-link" href="https://www.youtube.com/@CareerRide/playlists" target="_blank" style="color:#c4b5fd;font-size:12px;text-decoration:none;display:inline-block;">📋 View All Playlists</a>
+        <div id="playlist-fallback" style="display:none;position:absolute;inset:0;background:linear-gradient(135deg,#1e0b3a,#2d1060);border-radius:14px;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;">
+          <div style="font-size:44px;margin-bottom:12px;">📺</div>
+          <div id="playlist-title" style="color:#e9d5ff;font-family:'Playfair Display',serif;font-weight:700;font-size:16px;margin-bottom:8px;"></div>
+          <div style="color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:6px;">by <strong style="color:#fde68a;">CareerRide</strong> · 1.3M subscribers · 869+ videos</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:12px;margin-bottom:16px;">100+ aptitude &amp; reasoning topic videos</div>
+          <a id="playlist-link" href="https://www.youtube.com/@CareerRide" target="_blank" style="background:linear-gradient(135deg,#7c3aed,#db2777);color:white;text-decoration:none;padding:11px 24px;border-radius:12px;font-size:13px;font-weight:600;display:inline-block;margin-bottom:8px;">▶ Open CareerRide Channel →</a>
+          <br>
+          <a href="https://www.youtube.com/@CareerRide/playlists" target="_blank" style="color:#c4b5fd;font-size:12px;text-decoration:none;margin-top:8px;display:inline-block;">📋 View All Playlists</a>
         </div>
       </div>
       <div class="live-progress-box" id="live-progress-box" style="display:none;">
@@ -533,6 +649,35 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       </div>
       <p id="preview-desc" style="font-size:13px;color:var(--textm);margin-bottom:1rem;line-height:1.7;"></p>
       <div style="display:flex;gap:8px;" id="preview-actions"></div>
+
+      <!-- ⭐ Ratings & Reviews -->
+      <div class="reviews-section" id="reviews-section">
+        <div class="reviews-title">⭐ Student Reviews</div>
+        <div class="rating-summary" id="rating-summary"></div>
+        <div id="reviews-list"></div>
+        <div class="write-review" id="write-review-wrap">
+          <div style="font-size:12px;font-weight:600;color:var(--dark);margin-bottom:6px;">Write a Review</div>
+          <div class="star-select" id="star-select">
+            <button class="star-btn" data-v="1" onclick="setReviewStar(1)">★</button>
+            <button class="star-btn" data-v="2" onclick="setReviewStar(2)">★</button>
+            <button class="star-btn" data-v="3" onclick="setReviewStar(3)">★</button>
+            <button class="star-btn" data-v="4" onclick="setReviewStar(4)">★</button>
+            <button class="star-btn" data-v="5" onclick="setReviewStar(5)">★</button>
+          </div>
+          <textarea class="review-textarea" id="review-textarea" placeholder="Share your experience with this course..."></textarea>
+          <button class="btn-submit-review" onclick="submitReview()">Submit Review</button>
+        </div>
+      </div>
+
+      <!-- 💬 Q&A Section -->
+      <div class="qa-section" id="qa-section">
+        <div class="qa-title">💬 Q&amp;A Discussion</div>
+        <div class="qa-input-wrap">
+          <input class="qa-input" id="qa-input" placeholder="Ask a question about this course...">
+          <button class="btn-qa-post" onclick="postQA()">Post</button>
+        </div>
+        <div id="qa-list"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -547,7 +692,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="modal">
     <div class="mhdr"><div class="mhdr-title">🔐 <em>Secure Checkout</em></div><button class="xbtn" onclick="hide('checkout-modal')">×</button></div>
     <div class="mbody">
-      <div class="order-box"><div class="ob-title">Order Summary</div><div id="checkout-items"></div><div class="orow"><span>GST (18%)</span><span id="co-gst">₹0</span></div><div class="orow total"><span>Total</span><span id="co-total">₹0</span></div></div>
+      <div class="order-box"><div class="ob-title">Order Summary</div><div id="checkout-items"></div><div class="orow discount-row" id="discount-row" style="display:none;"><span>🎁 Coupon Discount</span><span id="discount-val">-₹0</span></div><div class="orow"><span>GST (18%)</span><span id="co-gst">₹0</span></div><div class="orow total"><span>Total</span><span id="co-total">₹0</span></div></div>
+      <!-- Coupon Code -->
+      <div class="coupon-wrap">
+        <div class="coupon-row">
+          <input class="coupon-input" id="coupon-input" placeholder="🎁 Have a coupon code?" oninput="this.value=this.value.toUpperCase()">
+          <button class="btn-coupon" onclick="applyCoupon()">Apply</button>
+        </div>
+        <div class="coupon-success" id="coupon-success">✅ Coupon applied! You saved <span id="coupon-saved"></span></div>
+        <div class="coupon-error" id="coupon-error">❌ Invalid coupon code</div>
+      </div>
       <div class="pay-tabs"><button class="ptab active" id="tbc" onclick="switchTab('card')">💳 Card</button><button class="ptab" id="tbu" onclick="switchTab('upi')">📱 UPI</button></div>
       <div id="tab-card">
         <label class="flabel">Card Number</label><input class="finput mono" placeholder="1234  5678  9012  3456" maxlength="19" oninput="fmtCard(this)">
@@ -576,6 +730,35 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </div>
 </div>
 
+<!-- CERTIFICATE MODAL -->
+<div class="overlay" id="cert-modal">
+  <div class="modal" style="max-width:480px;">
+    <div class="mhdr"><div class="mhdr-title">🎓 <em>Certificate of Completion</em></div><button class="xbtn" onclick="hide('cert-modal')">×</button></div>
+    <div class="mbody">
+      <div class="cert-card">
+        <div class="cert-inner">
+          <div class="cert-logo">◆ Happy Coding</div>
+          <div class="cert-divider"></div>
+          <div class="cert-title">Certificate of Completion</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:0.5rem;">This is to certify that</div>
+          <div class="cert-name" id="cert-username">Scholar</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:0.25rem;">has successfully completed</div>
+          <div class="cert-course" id="cert-course">Course Name</div>
+          <div class="cert-stars">★★★★★</div>
+          <div class="cert-divider"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div><div class="cert-date" id="cert-date">March 2026</div><div style="font-size:10px;color:rgba(255,255,255,0.3);">Completion Date</div></div>
+            <div class="cert-seal">🏆</div>
+            <div><div class="cert-date">HC-<span id="cert-id">000</span></div><div style="font-size:10px;color:rgba(255,255,255,0.3);">Certificate ID</div></div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-download-cert" onclick="downloadCert()">⬇️ Download Certificate</button>
+      <button class="b2nd" onclick="hide('cert-modal')">Close</button>
+    </div>
+  </div>
+</div>
+
 <!-- PROGRESS UPDATE -->
 <div class="overlay" id="progress-modal">
   <div class="modal" style="max-width:400px;">
@@ -596,37 +779,36 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 <script>
 const courses = [
-  {id:1,title:"Python Full Course",emoji:"🐍",bg:"#f0fdf4",level:"Beginner",dur:"12h",price:1499,orig:4999,desc:"Complete Python from scratch — syntax, OOP, file handling, and real-world projects.",ytId:"_uQrJ0TkZlc",url:"https://www.youtube.com/watch?v=_uQrJ0TkZlc"},
-  {id:2,title:"JavaScript Full Course",emoji:"⚡",bg:"#fffbeb",level:"Beginner",dur:"9h",price:1299,orig:3999,desc:"Modern JS: ES6+, DOM, async/await, closures and more.",ytId:"W6NZfCO5SIk",url:"https://www.youtube.com/watch?v=W6NZfCO5SIk"},
-  {id:3,title:"React JS Full Course",emoji:"⚛️",bg:"#eff6ff",level:"Intermediate",dur:"10h",price:1799,orig:5999,desc:"Build modern UIs with React hooks, context, routing, and state management.",ytId:"bMknfKXIFA8",url:"https://www.youtube.com/watch?v=bMknfKXIFA8"},
-  {id:4,title:"Node.js Full Course",emoji:"🟢",bg:"#f0fdf4",level:"Intermediate",dur:"8h",price:1599,orig:4499,desc:"Server-side JS with Node, Express, REST APIs, and MongoDB.",ytId:"Oe421EPjeBE",url:"https://www.youtube.com/watch?v=Oe421EPjeBE"},
-  {id:5,title:"Web Dev Bootcamp",emoji:"🌐",bg:"#faf5ff",level:"Beginner",dur:"20h",price:2499,orig:7999,desc:"Full-stack web development from HTML to deployment.",ytId:"nu_pCVPKzTk",url:"https://www.youtube.com/watch?v=nu_pCVPKzTk"},
-  {id:6,title:"Data Science Course",emoji:"📊",bg:"#fdf2f8",level:"Intermediate",dur:"15h",price:1999,orig:5999,desc:"Python for data analysis, pandas, matplotlib, seaborn, and ML basics.",ytId:"ua-CiDNNj30",url:"https://www.youtube.com/watch?v=ua-CiDNNj30"},
-  {id:7,title:"Machine Learning",emoji:"🤖",bg:"#faf5ff",level:"Advanced",dur:"14h",price:2299,orig:6999,desc:"Supervised & unsupervised learning, scikit-learn, neural networks.",ytId:"NWONeJKn6kc",url:"https://www.youtube.com/watch?v=NWONeJKn6kc"},
-  {id:8,title:"SQL Full Course",emoji:"🗄️",bg:"#fff7ed",level:"Beginner",dur:"6h",price:999,orig:2999,desc:"SQL from basics to advanced queries, joins, indexes, and optimization.",ytId:"HXV3zeQKqGY",url:"https://www.youtube.com/watch?v=HXV3zeQKqGY"},
-  {id:9,title:"TypeScript Full Course",emoji:"🔷",bg:"#eff6ff",level:"Intermediate",dur:"8h",price:1499,orig:4499,desc:"TypeScript from basics to advanced — types, generics, decorators and more.",ytId:"30LWjhZzg50",url:"https://www.youtube.com/watch?v=30LWjhZzg50"},
-  {id:10,title:"Flutter & Dart",emoji:"📱",bg:"#f0fdf4",level:"Intermediate",dur:"11h",price:1999,orig:5999,desc:"Build beautiful cross-platform mobile apps with Flutter and Dart.",ytId:"VPvVD8t02U8",url:"https://www.youtube.com/watch?v=VPvVD8t02U8"},
-  {id:11,title:"Django Full Course",emoji:"🎸",bg:"#fdf2f8",level:"Advanced",dur:"10h",price:1799,orig:5499,desc:"Build full-stack web applications with Django, PostgreSQL, and REST APIs.",ytId:"rHux0gMZ3Eg",url:"https://www.youtube.com/watch?v=rHux0gMZ3Eg"},
-  {id:12,title:"Git & GitHub Masterclass",emoji:"🔀",bg:"#fff7ed",level:"Beginner",dur:"4h",price:799,orig:1999,desc:"Master version control with Git — branching, merging, pull requests and more.",ytId:"RGOj5yH7evk",url:"https://www.youtube.com/watch?v=RGOj5yH7evk"},
-  // ── INTERVIEW PREP ──
-  {id:13,title:"DSA — Data Structures & Algorithms",emoji:"🧩",bg:"#faf5ff",level:"Intermediate",dur:"16h",price:1999,orig:6999,desc:"Master arrays, linked lists, trees, graphs, sorting & searching — everything you need for top tech interviews.",ytId:"pkYVOmU3MgA",url:"https://www.youtube.com/watch?v=pkYVOmU3MgA",category:"interview"},
-  {id:14,title:"LeetCode Interview Crash Course",emoji:"🏆",bg:"#fff7ed",level:"Advanced",dur:"10h",price:1799,orig:5999,desc:"Crack FAANG interviews — 50+ LeetCode problems solved with patterns: sliding window, two pointers, BFS/DFS and more.",ytId:"KLlXCFG5TnA",url:"https://www.youtube.com/watch?v=KLlXCFG5TnA",category:"interview"},
-  {id:15,title:"System Design Interview",emoji:"🏗️",bg:"#eff6ff",level:"Advanced",dur:"8h",price:2299,orig:7499,desc:"Design scalable systems like Netflix, Uber, Twitter. Learn load balancers, caching, databases, microservices.",ytId:"F2FmTdLtb_4",url:"https://www.youtube.com/watch?v=F2FmTdLtb_4",category:"interview"},
-  {id:16,title:"JavaScript Interview Questions",emoji:"💼",bg:"#fffbeb",level:"Intermediate",dur:"6h",price:999,orig:2999,desc:"Top 100 JavaScript interview questions — closures, hoisting, promises, event loop, prototypes explained clearly.",ytId:"vn3tm0quoqE",url:"https://www.youtube.com/watch?v=vn3tm0quoqE",category:"interview"},
-  {id:17,title:"Python Interview Masterclass",emoji:"🐍",bg:"#f0fdf4",level:"Intermediate",dur:"7h",price:1299,orig:3999,desc:"Python coding interviews made easy — OOP, decorators, generators, threading, top 50 coding problems solved.",ytId:"0K_eZGS5NsU",url:"https://www.youtube.com/watch?v=0K_eZGS5NsU",category:"interview"},
-  {id:18,title:"React Interview Questions",emoji:"⚛️",bg:"#eff6ff",level:"Intermediate",dur:"5h",price:999,orig:2999,desc:"Top React interview questions — hooks, virtual DOM, state management, performance optimisation and patterns.",ytId:"xlSuLFEFQl4",url:"https://www.youtube.com/watch?v=xlSuLFEFQl4",category:"interview"},
-  {id:19,title:"HR & Soft Skills Interview",emoji:"🎤",bg:"#fdf2f8",level:"Beginner",dur:"3h",price:699,orig:1999,desc:"Ace HR rounds — Tell me about yourself, strengths/weaknesses, salary negotiation, STAR method and body language.",ytId:"aOv-_1xMnI0",url:"https://www.youtube.com/watch?v=aOv-_1xMnI0",category:"interview"},
-  {id:20,title:"Operating Systems for Interviews",emoji:"💻",bg:"#f0fdf4",level:"Intermediate",dur:"6h",price:1199,orig:3499,desc:"OS concepts for tech interviews — processes, threads, memory management, deadlocks, scheduling algorithms.",ytId:"mXw9ruZaxzI",url:"https://www.youtube.com/watch?v=mXw9ruZaxzI",category:"interview"},
-  {id:21,title:"DBMS Interview Prep",emoji:"🗃️",bg:"#fff7ed",level:"Intermediate",dur:"5h",price:999,orig:2999,desc:"Database concepts for interviews — normalization, transactions, ACID, indexing, SQL queries, NoSQL vs SQL.",ytId:"dl00fOOYLOM",url:"https://www.youtube.com/watch?v=dl00fOOYLOM",category:"interview"},
-  {id:22,title:"Computer Networks Interview",emoji:"🌐",bg:"#faf5ff",level:"Intermediate",dur:"4h",price:899,orig:2499,desc:"Networking fundamentals for tech interviews — OSI model, TCP/IP, HTTP, DNS, sockets, subnetting explained.",ytId:"IPvYjXCsTg8",url:"https://www.youtube.com/watch?v=IPvYjXCsTg8",category:"interview"},
-  {id:23,title:"Java Interview Masterclass",emoji:"☕",bg:"#fffbeb",level:"Intermediate",dur:"8h",price:1299,orig:3999,desc:"Core Java interview questions — OOP, collections, multithreading, exception handling, JVM internals and design patterns.",ytId:"8cm1x4bC610",url:"https://www.youtube.com/watch?v=8cm1x4bC610",category:"interview"},
-  {id:24,title:"Behavioral Interview Mastery",emoji:"🧠",bg:"#fdf2f8",level:"Beginner",dur:"2h",price:599,orig:1499,desc:"Nail behavioral rounds at Google, Amazon, Microsoft — STAR framework, leadership principles, conflict resolution and growth stories.",ytId:"PJKYqLP6MRE",url:"https://www.youtube.com/watch?v=PJKYqLP6MRE",category:"interview"},
-  {id:25,title:"Resume & LinkedIn for Developers",emoji:"📄",bg:"#f0fdf4",level:"Beginner",dur:"2h",price:499,orig:1299,desc:"Build an ATS-beating resume and optimise your LinkedIn profile to attract top recruiters and land interviews faster.",ytId:"Tt08KmFfIYQ",url:"https://www.youtube.com/watch?v=Tt08KmFfIYQ",category:"interview"},
-  {id:26,title:"Dynamic Programming Masterclass",emoji:"⚡",bg:"#faf5ff",level:"Advanced",dur:"9h",price:1799,orig:5499,desc:"Master dynamic programming from scratch — memoization, tabulation, knapsack, DP on trees, strings and grids.",ytId:"nqowAqwsHUA",url:"https://www.youtube.com/watch?v=nqowAqwsHUA",category:"interview"},
-  {id:27,title:"SQL Interview Questions",emoji:"🗄️",bg:"#fff7ed",level:"Intermediate",dur:"4h",price:799,orig:2299,desc:"Top SQL interview questions — complex joins, window functions, CTEs, query optimisation and real-world scenarios.",ytId:"7GVFYt6_ZFM",url:"https://www.youtube.com/watch?v=7GVFYt6_ZFM",category:"interview"},
-  {id:28,title:"Mock Interview — Full Stack",emoji:"🎯",bg:"#eff6ff",level:"Advanced",dur:"5h",price:1499,orig:4499,desc:"Real mock interview sessions for full-stack developers — live coding, system design, and behavioural rounds with feedback.",ytId:"qli-JCrSwuk",url:"https://www.youtube.com/watch?v=qli-JCrSwuk",category:"interview"},
-  {id:29,title:"Aptitude & Reasoning for Placements",emoji:"🔢",bg:"#fef3c7",level:"Beginner",dur:"6h",price:799,orig:1999,desc:"Crack campus placement aptitude rounds by CareerRide — quantitative aptitude, logical reasoning, verbal ability. 1.3M subscribers, 869+ videos covering all placement topics.",ytId:"UCjDHKp8AGnj-mn5dmTHCGw",url:"https://www.youtube.com/@CareerRide",isPlaylist:true,category:"interview"},
-  {id:30,title:"OOPs Interview Questions",emoji:"🧱",bg:"#fdf2f8",level:"Intermediate",dur:"3h",price:699,orig:1999,desc:"Deep dive into Object-Oriented Programming interview questions — SOLID principles, design patterns, abstraction and polymorphism.",ytId:"SiBw7os-_zI",url:"https://www.youtube.com/watch?v=SiBw7os-_zI",category:"interview"},
+  {id:1,title:"Python Full Course",emoji:"🐍",bg:"#f0fdf4",level:"Beginner",dur:"12h",price:1499,orig:4999,desc:"Complete Python from scratch — syntax, OOP, file handling, and real-world projects.",ytId:"_uQrJ0TkZlc",url:"https://www.youtube.com/watch?v=_uQrJ0TkZlc",badge:"bestseller",rating:4.7,ratingCount:12840,category:"webdev",learn:["Python syntax & data types","OOP & classes","File handling & modules","Real-world projects"]},
+  {id:2,title:"JavaScript Full Course",emoji:"⚡",bg:"#fffbeb",level:"Beginner",dur:"9h",price:1299,orig:3999,desc:"Modern JS: ES6+, DOM, async/await, closures and more.",ytId:"W6NZfCO5SIk",url:"https://www.youtube.com/watch?v=W6NZfCO5SIk",badge:"bestseller",rating:4.8,ratingCount:18320,category:"webdev",learn:["ES6+ features","DOM manipulation","Promises & async/await","Closures & prototypes"]},
+  {id:3,title:"React JS Full Course",emoji:"⚛️",bg:"#eff6ff",level:"Intermediate",dur:"10h",price:1799,orig:5999,desc:"Build modern UIs with React hooks, context, routing, and state management.",ytId:"bMknfKXIFA8",url:"https://www.youtube.com/watch?v=bMknfKXIFA8",badge:"hot",rating:4.6,ratingCount:9450,category:"webdev",learn:["React Hooks","Context API","React Router","State management"]},
+  {id:4,title:"Node.js Full Course",emoji:"🟢",bg:"#f0fdf4",level:"Intermediate",dur:"8h",price:1599,orig:4499,desc:"Server-side JS with Node, Express, REST APIs, and MongoDB.",ytId:"Oe421EPjeBE",url:"https://www.youtube.com/watch?v=Oe421EPjeBE",badge:"new",rating:4.5,ratingCount:6230,category:"webdev",learn:["Node.js fundamentals","Express framework","REST API design","MongoDB integration"]},
+  {id:5,title:"Web Dev Bootcamp",emoji:"🌐",bg:"#faf5ff",level:"Beginner",dur:"20h",price:2499,orig:7999,desc:"Full-stack web development from HTML to deployment.",ytId:"nu_pCVPKzTk",url:"https://www.youtube.com/watch?v=nu_pCVPKzTk",badge:"bestseller",rating:4.9,ratingCount:24100,category:"webdev",learn:["HTML & CSS","JavaScript","Backend with Node","Deployment"]},
+  {id:6,title:"Data Science Course",emoji:"📊",bg:"#fdf2f8",level:"Intermediate",dur:"15h",price:1999,orig:5999,desc:"Python for data analysis, pandas, matplotlib, seaborn, and ML basics.",ytId:"ua-CiDNNj30",url:"https://www.youtube.com/watch?v=ua-CiDNNj30",badge:"trending",rating:4.6,ratingCount:8750,category:"datascience",learn:["Pandas & NumPy","Data visualization","Statistical analysis","ML basics"]},
+  {id:7,title:"Machine Learning",emoji:"🤖",bg:"#faf5ff",level:"Advanced",dur:"14h",price:2299,orig:6999,desc:"Supervised & unsupervised learning, scikit-learn, neural networks.",ytId:"NWONeJKn6kc",url:"https://www.youtube.com/watch?v=NWONeJKn6kc",badge:"hot",rating:4.7,ratingCount:11200,category:"datascience",learn:["Supervised learning","Unsupervised learning","scikit-learn","Neural networks"]},
+  {id:8,title:"SQL Full Course",emoji:"🗄️",bg:"#fff7ed",level:"Beginner",dur:"6h",price:999,orig:2999,desc:"SQL from basics to advanced queries, joins, indexes, and optimization.",ytId:"HXV3zeQKqGY",url:"https://www.youtube.com/watch?v=HXV3zeQKqGY",badge:"bestseller",rating:4.5,ratingCount:7890,category:"datascience",learn:["SQL basics","Joins & subqueries","Indexes & optimization","Stored procedures"]},
+  {id:9,title:"TypeScript Full Course",emoji:"🔷",bg:"#eff6ff",level:"Intermediate",dur:"8h",price:1499,orig:4499,desc:"TypeScript from basics to advanced — types, generics, decorators and more.",ytId:"30LWjhZzg50",url:"https://www.youtube.com/watch?v=30LWjhZzg50",badge:"new",rating:4.6,ratingCount:5430,category:"webdev",learn:["Type system","Generics","Decorators","Advanced patterns"]},
+  {id:10,title:"Flutter & Dart",emoji:"📱",bg:"#f0fdf4",level:"Intermediate",dur:"11h",price:1999,orig:5999,desc:"Build beautiful cross-platform mobile apps with Flutter and Dart.",ytId:"VPvVD8t02U8",url:"https://www.youtube.com/watch?v=VPvVD8t02U8",badge:"trending",rating:4.5,ratingCount:4210,category:"mobile",learn:["Dart language","Flutter widgets","State management","App deployment"]},
+  {id:11,title:"Django Full Course",emoji:"🎸",bg:"#fdf2f8",level:"Advanced",dur:"10h",price:1799,orig:5499,desc:"Build full-stack web applications with Django, PostgreSQL, and REST APIs.",ytId:"rHux0gMZ3Eg",url:"https://www.youtube.com/watch?v=rHux0gMZ3Eg",badge:"hot",rating:4.4,ratingCount:3870,category:"webdev",learn:["Django ORM","REST framework","Auth & permissions","PostgreSQL"]},
+  {id:12,title:"Git & GitHub Masterclass",emoji:"🔀",bg:"#fff7ed",level:"Beginner",dur:"4h",price:799,orig:1999,desc:"Master version control with Git — branching, merging, pull requests and more.",ytId:"RGOj5yH7evk",url:"https://www.youtube.com/watch?v=RGOj5yH7evk",badge:"bestseller",rating:4.8,ratingCount:15600,category:"tools",learn:["Git basics","Branching strategies","Pull requests","GitHub Actions"]},
+  {id:13,title:"DSA — Data Structures & Algorithms",emoji:"🧩",bg:"#faf5ff",level:"Intermediate",dur:"16h",price:1999,orig:6999,desc:"Master arrays, linked lists, trees, graphs, sorting & searching.",ytId:"pkYVOmU3MgA",url:"https://www.youtube.com/watch?v=pkYVOmU3MgA",badge:"bestseller",category:"interview",rating:4.8,ratingCount:19200,learn:["Arrays & linked lists","Trees & graphs","Sorting algorithms","Dynamic programming"]},
+  {id:14,title:"LeetCode Interview Crash Course",emoji:"🏆",bg:"#fff7ed",level:"Advanced",dur:"10h",price:1799,orig:5999,desc:"Crack FAANG interviews — 50+ LeetCode problems solved with patterns.",ytId:"KLlXCFG5TnA",url:"https://www.youtube.com/watch?v=KLlXCFG5TnA",badge:"hot",category:"interview",rating:4.7,ratingCount:8900,learn:["Sliding window","Two pointers","BFS/DFS","Dynamic programming"]},
+  {id:15,title:"System Design Interview",emoji:"🏗️",bg:"#eff6ff",level:"Advanced",dur:"8h",price:2299,orig:7499,desc:"Design scalable systems like Netflix, Uber, Twitter.",ytId:"F2FmTdLtb_4",url:"https://www.youtube.com/watch?v=F2FmTdLtb_4",badge:"trending",category:"interview",rating:4.6,ratingCount:6700,learn:["Scalability concepts","Load balancing","Caching strategies","Microservices"]},
+  {id:16,title:"JavaScript Interview Questions",emoji:"💼",bg:"#fffbeb",level:"Intermediate",dur:"6h",price:999,orig:2999,desc:"Top 100 JavaScript interview questions explained clearly.",ytId:"vn3tm0quoqE",url:"https://www.youtube.com/watch?v=vn3tm0quoqE",badge:"new",category:"interview",rating:4.5,ratingCount:4320,learn:["Closures & hoisting","Promises & async","Event loop","Prototypes"]},
+  {id:17,title:"Python Interview Masterclass",emoji:"🐍",bg:"#f0fdf4",level:"Intermediate",dur:"7h",price:1299,orig:3999,desc:"Python coding interviews made easy.",ytId:"0K_eZGS5NsU",url:"https://www.youtube.com/watch?v=0K_eZGS5NsU",badge:"bestseller",category:"interview",rating:4.7,ratingCount:7800,learn:["OOP concepts","Decorators","Generators","Top 50 problems"]},
+  {id:18,title:"React Interview Questions",emoji:"⚛️",bg:"#eff6ff",level:"Intermediate",dur:"5h",price:999,orig:2999,desc:"Top React interview questions — hooks, virtual DOM, performance.",ytId:"xlSuLFEFQl4",url:"https://www.youtube.com/watch?v=xlSuLFEFQl4",badge:"new",category:"interview",rating:4.4,ratingCount:3210,learn:["React hooks","Virtual DOM","Performance tips","State patterns"]},
+  {id:19,title:"HR & Soft Skills Interview",emoji:"🎤",bg:"#fdf2f8",level:"Beginner",dur:"3h",price:699,orig:1999,desc:"Ace HR rounds with STAR method and body language tips.",ytId:"aOv-_1xMnI0",url:"https://www.youtube.com/watch?v=aOv-_1xMnI0",badge:"trending",category:"interview",rating:4.6,ratingCount:9100,learn:["STAR method","Salary negotiation","Body language","Common HR questions"]},
+  {id:20,title:"Operating Systems for Interviews",emoji:"💻",bg:"#f0fdf4",level:"Intermediate",dur:"6h",price:1199,orig:3499,desc:"OS concepts — processes, threads, memory management, deadlocks.",ytId:"mXw9ruZaxzI",url:"https://www.youtube.com/watch?v=mXw9ruZaxzI",badge:"hot",category:"interview",rating:4.5,ratingCount:5430,learn:["Processes & threads","Memory management","Deadlocks","Scheduling"]},
+  {id:21,title:"DBMS Interview Prep",emoji:"🗃️",bg:"#fff7ed",level:"Intermediate",dur:"5h",price:999,orig:2999,desc:"Database concepts — normalization, ACID, indexing.",ytId:"dl00fOOYLOM",url:"https://www.youtube.com/watch?v=dl00fOOYLOM",badge:"new",category:"interview",rating:4.4,ratingCount:3670,learn:["Normalization","Transactions & ACID","Indexing","NoSQL vs SQL"]},
+  {id:22,title:"Computer Networks Interview",emoji:"🌐",bg:"#faf5ff",level:"Intermediate",dur:"4h",price:899,orig:2499,desc:"Networking fundamentals — OSI model, TCP/IP, HTTP, DNS.",ytId:"IPvYjXCsTg8",url:"https://www.youtube.com/watch?v=IPvYjXCsTg8",badge:"trending",category:"interview",rating:4.3,ratingCount:2890,learn:["OSI model","TCP/IP","HTTP & HTTPS","DNS & subnetting"]},
+  {id:23,title:"Java Interview Masterclass",emoji:"☕",bg:"#fffbeb",level:"Intermediate",dur:"8h",price:1299,orig:3999,desc:"Core Java interview questions — OOP, collections, JVM internals.",ytId:"8cm1x4bC610",url:"https://www.youtube.com/watch?v=8cm1x4bC610",badge:"bestseller",category:"interview",rating:4.7,ratingCount:10200,learn:["OOP principles","Collections framework","Multithreading","JVM internals"]},
+  {id:24,title:"Behavioral Interview Mastery",emoji:"🧠",bg:"#fdf2f8",level:"Beginner",dur:"2h",price:599,orig:1499,desc:"Nail behavioral rounds at Google, Amazon, Microsoft.",ytId:"PJKYqLP6MRE",url:"https://www.youtube.com/watch?v=PJKYqLP6MRE",badge:"hot",category:"interview",rating:4.8,ratingCount:13400,learn:["STAR framework","Leadership stories","Conflict resolution","Growth mindset"]},
+  {id:25,title:"Resume & LinkedIn for Developers",emoji:"📄",bg:"#f0fdf4",level:"Beginner",dur:"2h",price:499,orig:1299,desc:"Build ATS-beating resume and optimize LinkedIn profile.",ytId:"Tt08KmFfIYQ",url:"https://www.youtube.com/watch?v=Tt08KmFfIYQ",badge:"new",category:"interview",rating:4.6,ratingCount:7650,learn:["ATS optimization","LinkedIn profile","Portfolio tips","Cold outreach"]},
+  {id:26,title:"Dynamic Programming Masterclass",emoji:"⚡",bg:"#faf5ff",level:"Advanced",dur:"9h",price:1799,orig:5499,desc:"Master DP — memoization, tabulation, knapsack, DP on trees.",ytId:"nqowAqwsHUA",url:"https://www.youtube.com/watch?v=nqowAqwsHUA",badge:"bestseller",category:"interview",rating:4.8,ratingCount:11800,learn:["Memoization","Tabulation","Knapsack problems","DP on strings & trees"]},
+  {id:27,title:"SQL Interview Questions",emoji:"🗄️",bg:"#fff7ed",level:"Intermediate",dur:"4h",price:799,orig:2299,desc:"Top SQL interview questions — window functions, CTEs, optimization.",ytId:"7GVFYt6_ZFM",url:"https://www.youtube.com/watch?v=7GVFYt6_ZFM",badge:"trending",category:"interview",rating:4.5,ratingCount:4560,learn:["Complex joins","Window functions","CTEs","Query optimization"]},
+  {id:28,title:"Mock Interview — Full Stack",emoji:"🎯",bg:"#eff6ff",level:"Advanced",dur:"5h",price:1499,orig:4499,desc:"Real mock interview sessions — live coding, system design, behavioural.",ytId:"qli-JCrSwuk",url:"https://www.youtube.com/watch?v=qli-JCrSwuk",badge:"hot",category:"interview",rating:4.7,ratingCount:6320,learn:["Live coding practice","System design rounds","Behavioral rounds","Feedback analysis"]},
+  {id:29,title:"Aptitude & Reasoning for Placements",emoji:"🔢",bg:"#fef3c7",level:"Beginner",dur:"6h",price:799,orig:1999,desc:"Crack campus placement aptitude rounds by CareerRide.",ytId:"UCjDHKp8AGnj-mn5dmTHCGw",url:"https://www.youtube.com/@CareerRide",isPlaylist:true,badge:"bestseller",category:"interview",rating:4.6,ratingCount:21000,learn:["Quantitative aptitude","Logical reasoning","Verbal ability","Coding MCQs"]},
+  {id:30,title:"OOPs Interview Questions",emoji:"🧱",bg:"#fdf2f8",level:"Intermediate",dur:"3h",price:699,orig:1999,desc:"OOP interview questions — SOLID principles, design patterns.",ytId:"SiBw7os-_zI",url:"https://www.youtube.com/watch?v=SiBw7os-_zI",badge:"new",category:"interview",rating:4.5,ratingCount:3890,learn:["SOLID principles","Design patterns","Abstraction","Polymorphism"]},
 ];
 
 // ── STATE ──
@@ -715,66 +897,9 @@ function showTab(tab) {
 function disc(p,o){return Math.round((1-p/o)*100);}
 function lvlClass(l){return l==='Beginner'?'beg':l==='Intermediate'?'int':'adv';}
 
-function applyFilters() {
-  const q = document.getElementById('search-input').value.toLowerCase();
-  const sort = document.getElementById('sort-select').value;
-  let list = courses.filter(c=>{
-    const matchQ = !q||c.title.toLowerCase().includes(q)||c.level.toLowerCase().includes(q)||(c.category||'').includes(q);
-    const matchL = activeLevel==='all'||(activeLevel==='interview'&&c.category==='interview')||(activeLevel!=='interview'&&c.level===activeLevel);
-    return matchQ&&matchL;
-  });
-  if(sort==='price-low') list.sort((a,b)=>a.price-b.price);
-  else if(sort==='price-high') list.sort((a,b)=>b.price-a.price);
-  else if(sort==='discount') list.sort((a,b)=>disc(b.price,b.orig)-disc(a.price,a.orig));
-  renderGrid(list);
-  document.getElementById('results-count').innerHTML = '<em>'+list.length+' course'+(list.length!==1?'s':'')+'</em>';
-  document.getElementById('no-results').style.display = list.length===0?'block':'none';
-}
-
 function setLevel(el) {
   document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
   el.classList.add('active'); activeLevel = el.dataset.level; applyFilters();
-}
-
-function renderGrid(list) {
-  const g = document.getElementById('courses-grid');
-  if(!list.length){g.innerHTML='';return;}
-  g.innerHTML = list.map((c,i) => {
-    const inCart = cart.find(x=>x.id===c.id);
-    const isPurchased = !!purchasedCourses[c.id];
-    const progress = isPurchased ? (purchasedCourses[c.id].progress||0) : 0;
-    const remaining = 100 - progress;
-    return `<div class="card${inCart&&!isPurchased?' in-cart':''}${isPurchased?' purchased':''}" id="card-${c.id}" style="animation-delay:${i*0.05}s;">
-      <div class="card-thumb" style="background:${c.bg};">
-        ${c.emoji}
-        <span class="lvl ${lvlClass(c.level)}">${c.level}</span>
-        <span class="icb">In Cart</span>
-        <span class="purchased-badge">✓ Purchased</span>
-      </div>
-      <div class="card-body">
-        <div class="card-title">${c.title}</div>
-        <div class="card-meta"><span>${c.dur}</span><span class="mdot"></span><span>Video Course</span></div>
-        ${isPurchased ? `
-        <div class="progress-wrap">
-          <div class="progress-label"><span>Progress</span><span>${progress}% done</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
-          <span class="remaining-badge">⏳ ${remaining}% remaining</span>
-        </div>` : `
-        <div class="card-price">
-          <span class="pm">₹${c.price.toLocaleString()}</span>
-          <span class="po">₹${c.orig.toLocaleString()}</span>
-          <span class="poff">${disc(c.price,c.orig)}% off</span>
-        </div>`}
-        <div class="card-actions">
-          <button class="btn btn-preview" onclick="openPreview(${c.id})">▶ Preview</button>
-          ${isPurchased ? `
-          <button class="btn btn-continue" onclick="continueCourse(${c.id})">▶ Continue</button>` : `
-          <button class="btn btn-cart${inCart?' added':''}" onclick="toggleCart(${c.id})">${inCart?'✓ Added':'+ Cart'}</button>
-          <button class="btn btn-enroll" onclick="openCheckoutSingle(${c.id})">Buy</button>`}
-        </div>
-      </div>
-    </div>`;
-  }).join('');
 }
 
 function continueCourse(id) {
@@ -920,130 +1045,18 @@ function removeFromCart(id) { cart=cart.filter(x=>x.id!==id); updateCartUI(); op
 // ── IFRAME ERROR DETECTION ──
 window.addEventListener('message', function(e) {
   if(e.data && e.data.event === 'onError') {
-    const c = courses.find(x=>x.id===currentPreviewId);
-    showVideoFallback(c);
+    showVideoFallback();
   }
 });
 
-function showVideoFallback(course) {
-  const iframe = document.getElementById('vid-iframe');
-  const vf = document.getElementById('video-fallback');
-  const pf = document.getElementById('playlist-fallback');
-  if (!iframe || !vf || !pf) return;
-
-  iframe.style.display = 'none';
-  iframe.src = '';
-  vf.style.display = 'none';
-  pf.style.display = 'none';
-
-  if (course && course.isPlaylist) {
-    pf.style.display = 'flex';
-    const t = document.getElementById('playlist-title');
-    const main = document.getElementById('playlist-main-link');
-    const all = document.getElementById('playlist-all-link');
-    if (t) t.textContent = '📺 CareerRide Channel · 1.3M subscribers · 869+ videos';
-    if (main) main.href = course.url || 'https://www.youtube.com/@CareerRide';
-    if (all) all.href = (course.url || 'https://www.youtube.com/@CareerRide') + '/playlists';
-    return;
-  }
-
-  vf.style.display = 'flex';
-  const link = document.getElementById('video-fallback-link');
-  if (link && course) link.href = course.url || (course.ytId ? ('https://www.youtube.com/watch?v=' + course.ytId) : '#');
-}
-
-// ── PREVIEW ──
-function openPreview(id) {
-  currentPreviewId = id;
-  const c = courses.find(x=>x.id===id);
-  const isPurchased = !!purchasedCourses[c.id];
-  document.getElementById('preview-title').textContent = c.title;
-  document.getElementById('preview-desc').textContent = c.desc;
-
-  // Reset video state
-  const iframe = document.getElementById('vid-iframe');
+function showVideoFallback() {
+  const iframe = document.getElementById('preview-iframe');
   const fallback = document.getElementById('video-fallback');
-  const playlistFallback = document.getElementById('playlist-fallback');
-  const fallbackLink = document.getElementById('video-fallback-link');
-  if (!iframe || !fallback || !playlistFallback || !fallbackLink) return;
-  iframe.style.display = 'block';
-  iframe.src = '';
-  fallback.style.display = 'none';
-  playlistFallback.style.display = 'none';
-  fallbackLink.href = c.url || (c.ytId ? ('https://www.youtube.com/watch?v=' + c.ytId) : '#');
-
-  // If this is a channel/playlist (no single embeddable video), show special card
-  if(c.isPlaylist) {
-    showVideoFallback(c);
-    clearTimeout(window._vidTimeout);
-    show('preview-modal');
-    return;
-  }
-
-  iframe.style.display = 'block';
-  fallback.style.display = 'none';
-  playlistFallback.style.display = 'none';
-
-  // Load video
-  iframe.src = `https://www.youtube.com/embed/${c.ytId}?enablejsapi=1&rel=0`;
-
-  // Timeout fallback — if video doesn't load in 4s, show fallback
-  clearTimeout(window._vidTimeout);
-  window._vidTimeout = setTimeout(() => {
-    try {
-      const iDoc = iframe.contentDocument || iframe.contentWindow?.document;
-      if(!iDoc || iDoc.title === '' || iDoc.title.includes('refused')) {
-        showVideoFallback(c);
-      }
-    } catch(e) {
-      // Cross-origin — video is loading fine
-    }
-  }, 5000);
-
-  const inCart = cart.find(x=>x.id===c.id);
-  const actionsEl = document.getElementById('preview-actions');
-  const progressBox = document.getElementById('live-progress-box');
-
-  if(isPurchased) {
-    progressBox.style.display = 'block';
-    const existingPct = purchasedCourses[c.id].progress || 0;
-    document.getElementById('lpb-pct').textContent = existingPct + '%';
-    document.getElementById('lpb-bar').style.width = existingPct + '%';
-    document.getElementById('lpb-remaining').textContent = `⏳ ${100-existingPct}% remaining`;
-    document.getElementById('lpb-watched').textContent = `⏱ 0m 0s watched this session`;
-    startWatchTimer(c.id);
-    actionsEl.innerHTML = `<a href="${c.url}" target="_blank" class="btn btn-continue" style="flex:1;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;">↗ Open Full Course on YouTube</a>`;
-  } else {
-    progressBox.style.display = 'none';
-    stopWatchTimer();
-    actionsEl.innerHTML = `<button class="btn btn-cart${inCart?' added':''}" onclick="toggleCart(${c.id});openPreview(${c.id});">${inCart?'✓ In Cart':'+ Cart'}</button><button class="btn btn-enroll" style="flex:2;" onclick="hide('preview-modal');openCheckoutSingle(${c.id});">Enroll Now</button>`;
-  }
-  show('preview-modal');
+  if(iframe) iframe.style.display = 'none';
+  if(fallback) fallback.style.display = 'flex';
 }
 
-// ── CHECKOUT ──
-function openCheckoutSingle(id) {
-  if(purchasedCourses[id]) { alert('You already own this course! Go to My Learning to continue.'); return; }
-  currentCheckoutIds = [id];
-  const c = courses.find(x=>x.id===id);
-  const gst = Math.round(c.price*0.18);
-  document.getElementById('checkout-items').innerHTML = `<div class="orow"><span>${c.title}</span><span>₹${c.price.toLocaleString()}</span></div>`;
-  document.getElementById('co-gst').textContent = '₹'+gst.toLocaleString();
-  document.getElementById('co-total').textContent = '₹'+(c.price+gst).toLocaleString();
-  show('checkout-modal');
-}
-
-function openCheckoutCart() {
-  hide('cart-modal');
-  const validCart = cart.filter(c=>!purchasedCourses[c.id]);
-  currentCheckoutIds = validCart.map(c=>c.id);
-  const sub = validCart.reduce((s,c)=>s+c.price,0), gst = Math.round(sub*0.18);
-  document.getElementById('checkout-items').innerHTML = validCart.map(c=>`<div class="orow"><span>${c.title}</span><span>₹${c.price.toLocaleString()}</span></div>`).join('');
-  document.getElementById('co-gst').textContent = '₹'+gst.toLocaleString();
-  document.getElementById('co-total').textContent = '₹'+(sub+gst).toLocaleString();
-  show('checkout-modal');
-}
-
+// ── CHECKOUT HELPERS ──
 function switchTab(t) {
   document.getElementById('tbc').classList.toggle('active',t==='card');
   document.getElementById('tbu').classList.toggle('active',t==='upi');
@@ -1054,24 +1067,10 @@ function switchTab(t) {
 function fmtCard(el){let v=el.value.replace(/\D/g,'').substring(0,16);el.value=v.replace(/(.{4})/g,'$1 ').trim();}
 function fmtExp(el){let v=el.value.replace(/\D/g,'');if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2,4);el.value=v;}
 
-function processPayment() {
-  hide('checkout-modal');
-  currentCheckoutIds.forEach(id => {
-    purchasedCourses[id] = {progress: 0, purchasedAt: new Date().toISOString()};
-  });
-  cart = cart.filter(c=>!purchasedCourses[c.id]);
-  updateCartUI(); saveUserData(); applyFilters();
-  const names = currentCheckoutIds.map(id=>courses.find(x=>x.id===id).title).join(', ');
-  document.getElementById('sname').textContent = names;
-  show('success-modal');
-}
-
 function goToCourse() {
   hide('success-modal');
-  if(currentCheckoutIds.length>0) {
-    const c = courses.find(x=>x.id===currentCheckoutIds[0]);
-    if(c) window.open(c.url,'_blank');
-  }
+  const url = window._lastPurchasedUrl || (currentCheckoutIds.length>0 ? courses.find(x=>x.id===currentCheckoutIds[0])?.url : null);
+  if(url && url !== '#') window.open(url,'_blank');
   showTab('dashboard');
 }
 
@@ -1115,6 +1114,7 @@ function renderDashboard() {
         <div class="my-course-actions">
           <button class="btn-watch" onclick="window.open('${c.url}','_blank')">▶ Watch</button>
           <button class="btn-update-progress" onclick="openProgressModal(${c.id})">📊 Update</button>
+          ${prog>=100?`<button class="btn-update-progress" style="background:#fef3c7;color:#92400e;border-color:#fde68a;" onclick="openCert(${c.id})">🎓 Certificate</button>`:''}
         </div>
       </div>`;
     }).join('');
@@ -1123,6 +1123,426 @@ function renderDashboard() {
   // ── RENDER MARKED FOR REVIEW ──
   renderReviewSection();
 }
+
+// ══════════════════════════════════════
+// UDEMY FEATURES
+// ══════════════════════════════════════
+
+// ── WHAT YOU'LL LEARN TOGGLE ──
+function toggleLearn(e, id) {
+  e.stopPropagation();
+  const el = document.getElementById('learn-'+id);
+  if(!el) return;
+  el.classList.toggle('show');
+  const btn = e.target;
+  btn.textContent = el.classList.contains('show') ? '📋 What you\'ll learn ▴' : '📋 What you\'ll learn ▾';
+}
+
+// ── NOTIFICATIONS ──
+let notifications = JSON.parse(localStorage.getItem('hc_notifs')||'[]');
+const DEFAULT_NOTIFS = [
+  {id:1,icon:'🎉',text:'<strong>Welcome to Happy Coding!</strong> Start learning today.',time:'Just now',unread:true},
+  {id:2,icon:'🔥',text:'<strong>New course added:</strong> Dynamic Programming Masterclass',time:'2h ago',unread:true},
+  {id:3,icon:'⭐',text:'You earned <strong>50 XP</strong> from completing a quiz!',time:'1d ago',unread:false},
+  {id:4,icon:'🎁',text:'Special offer! Use code <strong>HAPPY20</strong> for 20% off',time:'2d ago',unread:false},
+];
+if(!notifications.length) { notifications = DEFAULT_NOTIFS; localStorage.setItem('hc_notifs', JSON.stringify(notifications)); }
+
+function toggleNotif() {
+  const panel = document.getElementById('notif-panel');
+  panel.classList.toggle('show');
+  if(panel.classList.contains('show')) renderNotifs();
+  // close on outside click
+  setTimeout(()=>document.addEventListener('click', closeNotifOutside, {once:true}), 10);
+}
+function closeNotifOutside(e) {
+  const wrap = document.getElementById('notif-wrap');
+  if(wrap && !wrap.contains(e.target)) document.getElementById('notif-panel')?.classList.remove('show');
+}
+function renderNotifs() {
+  const list = document.getElementById('notif-list');
+  const unread = notifications.filter(n=>n.unread).length;
+  document.getElementById('notif-dot').style.display = unread>0?'block':'none';
+  if(!notifications.length) { list.innerHTML='<div class="notif-empty">🔔 No notifications</div>'; return; }
+  list.innerHTML = notifications.map(n=>`
+    <div class="notif-item${n.unread?' unread':''}" onclick="markNotifRead(${n.id})">
+      <div class="notif-icon">${n.icon}</div>
+      <div style="flex:1;">
+        <div class="notif-text">${n.text}</div>
+        <div class="notif-time">${n.time}</div>
+      </div>
+      ${n.unread?'<div style="width:8px;height:8px;border-radius:50%;background:var(--purple);flex-shrink:0;margin-top:4px;"></div>':''}
+    </div>`).join('');
+}
+function markNotifRead(id) {
+  notifications = notifications.map(n=>n.id===id?{...n,unread:false}:n);
+  localStorage.setItem('hc_notifs', JSON.stringify(notifications));
+  renderNotifs();
+}
+function clearNotifs() {
+  notifications = notifications.map(n=>({...n,unread:false}));
+  localStorage.setItem('hc_notifs', JSON.stringify(notifications));
+  renderNotifs();
+}
+function addNotification(icon, text) {
+  const n = {id:Date.now(),icon,text,time:'Just now',unread:true};
+  notifications.unshift(n);
+  localStorage.setItem('hc_notifs', JSON.stringify(notifications));
+  document.getElementById('notif-dot').style.display = 'block';
+}
+
+// ── COUPON CODES ──
+const COUPONS = { 'HAPPY20':20, 'LEARN50':50, 'FIRST10':10, 'HC30':30, 'SALE15':15 };
+let appliedDiscount = 0;
+let currentBaseAmount = 0;
+
+function applyCoupon() {
+  const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+  const succ = document.getElementById('coupon-success');
+  const err = document.getElementById('coupon-error');
+  succ.style.display='none'; err.style.display='none';
+  if(!code) { err.textContent='❌ Please enter a coupon code'; err.style.display='block'; return; }
+  if(COUPONS[code]) {
+    appliedDiscount = COUPONS[code];
+    const saved = Math.round(currentBaseAmount * appliedDiscount / 100);
+    document.getElementById('coupon-saved').textContent = `₹${saved.toLocaleString()} (${appliedDiscount}% off)`;
+    succ.style.display='block';
+    document.getElementById('discount-row').style.display='flex';
+    document.getElementById('discount-val').textContent = `-₹${saved.toLocaleString()}`;
+    recalcTotal();
+    addNotification('🎁', `Coupon <strong>${code}</strong> applied — ${appliedDiscount}% discount!`);
+  } else {
+    err.textContent = '❌ Invalid coupon code. Try: HAPPY20, LEARN50, HC30';
+    err.style.display='block';
+    appliedDiscount = 0;
+    document.getElementById('discount-row').style.display='none';
+    recalcTotal();
+  }
+}
+
+function recalcTotal() {
+  const base = currentBaseAmount;
+  const discount = Math.round(base * appliedDiscount / 100);
+  const afterDiscount = base - discount;
+  const gst = Math.round(afterDiscount * 0.18);
+  document.getElementById('co-gst').textContent = '₹'+gst.toLocaleString();
+  document.getElementById('co-total').textContent = '₹'+(afterDiscount+gst).toLocaleString();
+}
+
+// ── openCheckoutSingle with coupon reset ──
+function openCheckoutSingle(id) {
+  appliedDiscount = 0;
+  document.getElementById('discount-row').style.display='none';
+  document.getElementById('coupon-input').value='';
+  document.getElementById('coupon-success').style.display='none';
+  document.getElementById('coupon-error').style.display='none';
+  if(purchasedCourses[id]) { alert('You already own this course! Go to My Learning to continue.'); return; }
+  currentCheckoutIds = [id];
+  const c = courses.find(x=>x.id===id);
+  currentBaseAmount = c.price;
+  const gst = Math.round(c.price*0.18);
+  document.getElementById('checkout-items').innerHTML = `<div class="orow"><span>${c.title}</span><span>₹${c.price.toLocaleString()}</span></div>`;
+  document.getElementById('co-gst').textContent = '₹'+gst.toLocaleString();
+  document.getElementById('co-total').textContent = '₹'+(c.price+gst).toLocaleString();
+  show('checkout-modal');
+}
+
+// ── openCheckoutCart with coupon reset ──
+function openCheckoutCart() {
+  hide('cart-modal');
+  appliedDiscount = 0;
+  document.getElementById('discount-row').style.display='none';
+  document.getElementById('coupon-input').value='';
+  document.getElementById('coupon-success').style.display='none';
+  document.getElementById('coupon-error').style.display='none';
+  const validCart = cart.filter(c=>!purchasedCourses[c.id]);
+  currentCheckoutIds = validCart.map(c=>c.id);
+  const sub = validCart.reduce((s,c)=>s+c.price,0);
+  currentBaseAmount = sub;
+  const gst = Math.round(sub*0.18);
+  document.getElementById('checkout-items').innerHTML = validCart.map(c=>`<div class="orow"><span>${c.title}</span><span>₹${c.price.toLocaleString()}</span></div>`).join('');
+  document.getElementById('co-gst').textContent = '₹'+gst.toLocaleString();
+  document.getElementById('co-total').textContent = '₹'+(sub+gst).toLocaleString();
+  show('checkout-modal');
+}
+
+// ── REVIEWS & RATINGS ──
+let courseReviews = JSON.parse(localStorage.getItem('hc_reviews')||'{}');
+let selectedReviewStar = 0;
+let currentReviewCourseId = null;
+
+const DEFAULT_REVIEWS = {
+  1:[{user:'Priya S',avatar:'P',stars:5,text:'Excellent course! Very well explained from scratch.',date:'Feb 2026'},{user:'Rahul K',avatar:'R',stars:4,text:'Great content, could use more practice problems.',date:'Jan 2026'}],
+  2:[{user:'Ananya M',avatar:'A',stars:5,text:'Best JS course I have taken. Concepts are crystal clear!',date:'Mar 2026'}],
+  3:[{user:'Dev T',avatar:'D',stars:4,text:'React hooks explained brilliantly. Highly recommend!',date:'Feb 2026'}],
+};
+
+function renderReviews(courseId) {
+  currentReviewCourseId = courseId;
+  const c = courses.find(x=>x.id===courseId);
+  const reviews = [...(DEFAULT_REVIEWS[courseId]||[]), ...(courseReviews[courseId]||[])];
+  const rs = document.getElementById('rating-summary');
+  const rl = document.getElementById('reviews-list');
+  if(!rs||!rl) return;
+  const avg = c.rating||4.5;
+  const count = c.ratingCount||0;
+  const bars = [[5,72],[4,18],[3,7],[2,2],[1,1]];
+  rs.innerHTML = `
+    <div class="rating-big">
+      <div class="rating-big-num">${avg}</div>
+      <div class="rating-big-stars">${'★'.repeat(Math.floor(avg))}</div>
+      <div class="rating-big-count">${count.toLocaleString()} ratings</div>
+    </div>
+    <div class="rating-bars">
+      ${bars.map(([s,p])=>`<div class="rbar-row"><span class="rbar-label">${s}★</span><div class="rbar-wrap"><div class="rbar-fill" style="width:${p}%"></div></div><span class="rbar-pct">${p}%</span></div>`).join('')}
+    </div>`;
+  rl.innerHTML = reviews.slice(0,5).map(r=>`
+    <div class="review-item">
+      <div class="review-header">
+        <div class="review-avatar">${r.avatar||r.user.charAt(0)}</div>
+        <div>
+          <div class="review-user">${r.user}</div>
+          <div class="review-stars">${'★'.repeat(r.stars)}</div>
+        </div>
+        <div class="review-date" style="margin-left:auto;">${r.date||''}</div>
+      </div>
+      <div class="review-text">${r.text}</div>
+    </div>`).join('');
+  selectedReviewStar = 0;
+  document.querySelectorAll('.star-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('review-textarea').value='';
+}
+
+function setReviewStar(val) {
+  selectedReviewStar = val;
+  document.querySelectorAll('.star-btn').forEach(b=>{
+    b.classList.toggle('active', parseInt(b.dataset.v)<=val);
+  });
+}
+
+function submitReview() {
+  if(!selectedReviewStar) { alert('Please select a star rating!'); return; }
+  const text = document.getElementById('review-textarea').value.trim();
+  if(!text) { alert('Please write your review!'); return; }
+  if(!currentReviewCourseId) return;
+  if(!courseReviews[currentReviewCourseId]) courseReviews[currentReviewCourseId]=[];
+  const name = currentUser?.name||'Student';
+  courseReviews[currentReviewCourseId].unshift({user:name,avatar:name.charAt(0).toUpperCase(),stars:selectedReviewStar,text,date:'Just now'});
+  localStorage.setItem('hc_reviews', JSON.stringify(courseReviews));
+  renderReviews(currentReviewCourseId);
+  addNotification('⭐', `You reviewed <strong>${courses.find(x=>x.id===currentReviewCourseId)?.title}</strong> — ${selectedReviewStar} stars!`);
+}
+
+// ── Q&A ──
+let courseQA = JSON.parse(localStorage.getItem('hc_qa')||'{}');
+let currentQACourseId = null;
+
+const DEFAULT_QA = {
+  1:[{user:'Amit R',avatar:'A',text:'Is this suitable for absolute beginners?',time:'3d ago'},{user:'Instructor',avatar:'I',text:'Yes! No prior programming experience needed.',time:'3d ago'}],
+  2:[{user:'Sara M',avatar:'S',text:'Does this cover ES2024 features?',time:'1d ago'}],
+};
+
+function renderQA(courseId) {
+  currentQACourseId = courseId;
+  const ql = document.getElementById('qa-list');
+  if(!ql) return;
+  const questions = [...(DEFAULT_QA[courseId]||[]), ...(courseQA[courseId]||[])];
+  if(!questions.length) { ql.innerHTML='<div style="font-size:13px;color:var(--textl);padding:8px 0;">No questions yet. Be the first to ask!</div>'; return; }
+  ql.innerHTML = questions.map(q=>`
+    <div class="qa-item">
+      <div class="qa-item-header">
+        <div class="qa-avatar" style="${q.user==='Instructor'?'background:linear-gradient(135deg,#f59e0b,#ef4444);':''}">${q.avatar||q.user.charAt(0)}</div>
+        <span class="qa-user">${q.user}${q.user==='Instructor'?' 👨‍🏫':''}</span>
+        <span class="qa-time">${q.time||''}</span>
+      </div>
+      <div class="qa-text">${q.text}</div>
+    </div>`).join('');
+}
+
+function postQA() {
+  const input = document.getElementById('qa-input');
+  const text = input.value.trim();
+  if(!text) return;
+  if(!currentQACourseId) return;
+  if(!courseQA[currentQACourseId]) courseQA[currentQACourseId]=[];
+  const name = currentUser?.name||'Student';
+  courseQA[currentQACourseId].push({user:name,avatar:name.charAt(0).toUpperCase(),text,time:'Just now'});
+  localStorage.setItem('hc_qa', JSON.stringify(courseQA));
+  input.value='';
+  renderQA(currentQACourseId);
+  addNotification('💬', `Your question was posted on <strong>${courses.find(x=>x.id===currentQACourseId)?.title}</strong>`);
+}
+
+// ── CERTIFICATE ──
+function openCert(courseId) {
+  const c = courses.find(x=>x.id===courseId);
+  if(!c) return;
+  document.getElementById('cert-username').textContent = currentUser?.name||'Scholar';
+  document.getElementById('cert-course').textContent = c.title;
+  document.getElementById('cert-date').textContent = new Date().toLocaleDateString('en-IN',{month:'long',year:'numeric'});
+  document.getElementById('cert-id').textContent = Math.random().toString(36).substring(2,8).toUpperCase();
+  show('cert-modal');
+}
+
+function downloadCert() {
+  const course = document.getElementById('cert-course').textContent;
+  const name = document.getElementById('cert-username').textContent;
+  alert(`🎓 Certificate for "${course}" will be downloaded!\n\nNote: In production, this would generate a real PDF certificate for ${name}.`);
+  addNotification('🎓', `Certificate downloaded for <strong>${course}</strong>`);
+}
+
+// ── applyFilters with Udemy features ──
+function applyFilters() {
+  const q = document.getElementById('search-input')?.value?.toLowerCase()||'';
+  const sort = document.getElementById('sort-select')?.value||'default';
+  let list = courses.filter(c=>{
+    const matchQ = !q||c.title.toLowerCase().includes(q)||c.level.toLowerCase().includes(q);
+    const matchL = activeLevel==='all'||c.level===activeLevel;
+    return matchQ&&matchL;
+  });
+  if(sort==='price-low') list.sort((a,b)=>a.price-b.price);
+  else if(sort==='price-high') list.sort((a,b)=>b.price-a.price);
+  else if(sort==='discount') list.sort((a,b)=>disc(b.price,b.orig)-disc(a.price,a.orig));
+  const g = document.getElementById('courses-grid');
+  if(g) { g.innerHTML = list.length ? renderGridHTML(list) : ''; }
+  const rc = document.getElementById('results-count');
+  if(rc) rc.innerHTML='<em>'+list.length+' course'+(list.length!==1?'s':'')+'</em>';
+  const nr = document.getElementById('no-results');
+  if(nr) nr.style.display=list.length===0?'block':'none';
+}
+
+function renderGridHTML(list) {
+  return list.map((c,i) => {
+    const inCart = cart.find(x=>x.id===c.id);
+    const isPurchased = !!purchasedCourses[c.id];
+    const progress = isPurchased ? (purchasedCourses[c.id].progress||0) : 0;
+    const remaining = 100 - progress;
+    const badgeHtml = c.badge ? `<span class="course-badge badge-${c.badge}">${c.badge==='bestseller'?'🏆 Bestseller':c.badge==='new'?'✨ New':c.badge==='hot'?'🔥 Hot':'📈 Trending'}</span>` : '';
+    const starsHtml = c.rating ? `<div class="card-rating"><span class="stars">${'★'.repeat(Math.floor(c.rating))}${c.rating%1>=0.5?'½':''}</span><span class="rating-val">${c.rating}</span><span class="rating-count">(${(c.ratingCount||0).toLocaleString()})</span></div>` : '';
+    const learnHtml = c.learn ? `<div class="learn-section"><button class="learn-toggle" onclick="toggleLearn(event,${c.id})">📋 What you'll learn ▾</button><div class="learn-list" id="learn-${c.id}">${c.learn.map(l=>`<div class="learn-item">${l}</div>`).join('')}</div></div>` : '';
+    return `<div class="card${inCart&&!isPurchased?' in-cart':''}${isPurchased?' purchased':''}" id="card-${c.id}" style="animation-delay:${i*0.05}s;">
+      <div class="card-thumb" style="background:${c.bg};">
+        ${c.emoji}
+        <span class="lvl ${lvlClass(c.level)}">${c.level}</span>
+        <span class="icb">In Cart</span>
+        <span class="purchased-badge">✓ Purchased</span>
+        ${badgeHtml}
+      </div>
+      <div class="card-body">
+        <div class="card-title">${c.title}</div>
+        <div class="card-meta"><span>${c.dur}</span><span class="mdot"></span><span>Video Course</span></div>
+        ${starsHtml}
+        ${learnHtml}
+        ${isPurchased ? `
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Progress</span><span>${progress}% done</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
+          <span class="remaining-badge">⏳ ${remaining}% remaining</span>
+        </div>` : `
+        <div class="card-price">
+          <span class="pm">₹${c.price.toLocaleString()}</span>
+          <span class="po">₹${c.orig.toLocaleString()}</span>
+          <span class="poff">${disc(c.price,c.orig)}% off</span>
+        </div>`}
+        <div class="card-actions">
+          <button class="btn btn-preview" onclick="openPreview(${c.id})">▶ Preview</button>
+          ${isPurchased ? `
+          <button class="btn btn-continue" onclick="continueCourse(${c.id})">▶ Continue</button>` : `
+          <button class="btn btn-cart${inCart?' added':''}" onclick="toggleCart(${c.id})">${inCart?'✓ Added':'+ Cart'}</button>
+          <button class="btn btn-enroll" onclick="openCheckoutSingle(${c.id})">Buy</button>`}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── openPreview with reviews & QA ──
+function openPreview(id) {
+  currentPreviewId = id;
+  const c = courses.find(x=>x.id===id);
+  const isPurchased = !!purchasedCourses[c.id];
+  document.getElementById('preview-title').textContent = c.title;
+  document.getElementById('preview-desc').textContent = c.desc;
+
+  const iframe = document.getElementById('preview-iframe');
+  const fallback = document.getElementById('video-fallback');
+  const playlistFallback = document.getElementById('playlist-fallback');
+
+  // Reset all panels
+  if(iframe) iframe.style.display = 'block';
+  if(fallback) fallback.style.display = 'none';
+  if(playlistFallback) playlistFallback.style.display = 'none';
+
+  if(c.isPlaylist) {
+    // Show playlist card instead of video
+    if(iframe) iframe.style.display = 'none';
+    if(playlistFallback) {
+      playlistFallback.style.display = 'flex';
+      const pt = document.getElementById('playlist-title');
+      if(pt) pt.textContent = c.title;
+      const pl = document.getElementById('playlist-link');
+      if(pl) pl.href = c.url;
+    }
+    clearTimeout(window._vidTimeout);
+  } else {
+    // Normal video
+    const vfl = document.getElementById('video-fallback-link');
+    if(vfl) vfl.href = c.url;
+    if(iframe) iframe.src = `https://www.youtube.com/embed/${c.ytId}?enablejsapi=1&rel=0`;
+    clearTimeout(window._vidTimeout);
+    window._vidTimeout = setTimeout(()=>{
+      try {
+        const iDoc = iframe.contentDocument || iframe.contentWindow?.document;
+        if(!iDoc || iDoc.title === '' || iDoc.title.includes('refused')) {
+          showVideoFallback();
+        }
+      } catch(e) { /* cross-origin = loading fine */ }
+    }, 5000);
+  }
+
+  const inCart = cart.find(x=>x.id===c.id);
+  const actionsEl = document.getElementById('preview-actions');
+  const progressBox = document.getElementById('live-progress-box');
+
+  if(isPurchased) {
+    if(progressBox) progressBox.style.display = 'block';
+    const ep = purchasedCourses[c.id].progress||0;
+    document.getElementById('lpb-pct').textContent = ep+'%';
+    document.getElementById('lpb-bar').style.width = ep+'%';
+    document.getElementById('lpb-remaining').textContent = `⏳ ${100-ep}% remaining`;
+    document.getElementById('lpb-watched').textContent = `⏱ 0m 0s watched this session`;
+    startWatchTimer(c.id);
+    actionsEl.innerHTML = `<a href="${c.url}" target="_blank" class="btn btn-continue" style="flex:1;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;">↗ Open Full Course on YouTube</a>`;
+  } else {
+    if(progressBox) progressBox.style.display = 'none';
+    stopWatchTimer();
+    actionsEl.innerHTML = `<button class="btn btn-cart${inCart?' added':''}" onclick="toggleCart(${c.id});openPreview(${c.id});">${inCart?'✓ In Cart':'+ Cart'}</button><button class="btn btn-enroll" style="flex:2;" onclick="hide('preview-modal');openCheckoutSingle(${c.id});">Enroll Now</button>`;
+  }
+  show('preview-modal');
+  setTimeout(()=>{ renderReviews(id); renderQA(id); }, 50);
+}
+
+// ── processPayment with notification ──
+function processPayment() {
+  hide('checkout-modal');
+  const names = currentCheckoutIds.map(id=>courses.find(x=>x.id===id)?.title).join(', ');
+  window._lastPurchasedUrl = currentCheckoutIds.length>0 ? (courses.find(x=>x.id===currentCheckoutIds[0])?.url||'#') : '#';
+  currentCheckoutIds.forEach(id=>{
+    purchasedCourses[id]={progress:0,purchasedAt:new Date().toISOString()};
+  });
+  cart=cart.filter(c=>!purchasedCourses[c.id]);
+  updateCartUI(); saveUserData(); applyFilters();
+  document.getElementById('sname').textContent=names;
+  show('success-modal');
+  addNotification('✅',`Successfully enrolled in <strong>${names}</strong>!`);
+}
+
+// Init notifications dot
+window.addEventListener('load',()=>{
+  const unread = notifications.filter(n=>n.unread).length;
+  const dot = document.getElementById('notif-dot');
+  if(dot) dot.style.display = unread>0?'block':'none';
+});
 
 // ── REVIEW SECTION ──
 function renderReviewSection() {
@@ -2455,7 +2875,6 @@ function endMockInterview() {
 })();
 
 // ══ PATCH showTab to handle interview ══
-const _origShowTab = showTab;
 window.showTab = function(tab) {
   document.querySelectorAll('[id$="-tab"]:not([id="login-page"])').forEach(el=>{
     if(['courses-tab','dashboard-tab','interview-tab'].includes(el.id)) el.style.display='none';
