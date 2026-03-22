@@ -8,34 +8,39 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#f8f5ff;--bg2:#f0ebff;--bg3:#ede9fe;
-  --purple:#7c3aed;--purple2:#9333ea;--purple3:#a855f7;
-  --pink:#db2777;--pink2:#ec4899;--pink3:#f9a8d4;
-  --amber:#d97706;--amber2:#f59e0b;--amber3:#fde68a;
-  --dark:#1e0b3a;--dark2:#2d1060;
-  --text:#1e0b3a;--textm:#6b7280;--textl:#9ca3af;
-  --white:#ffffff;--border:rgba(124,58,237,0.12);--border2:rgba(124,58,237,0.22);
+  /* ── Vibrant Indigo & Cyan Theme ── */
+  --bg:#f0f4ff;--bg2:#e0e7ff;--bg3:#c7d2fe;
+  --purple:#4f46e5;--purple2:#6366f1;--purple3:#818cf8;
+  --pink:#0891b2;--pink2:#06b6d4;--pink3:#67e8f9;
+  --amber:#f59e0b;--amber2:#fbbf24;--amber3:#fde68a;
+  --dark:#0f172a;--dark2:#1e1b4b;
+  --text:#0f172a;--textm:#475569;--textl:#94a3b8;
+  --white:#ffffff;--border:rgba(79,70,229,0.15);--border2:rgba(79,70,229,0.28);
   --green:#16a34a;--green2:#dcfce7;
+  --red:#dc2626;
 }
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-tap-highlight-color:transparent;}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--purple),var(--pink));border-radius:3px;}
+/* Touch-friendly tap targets */
+button,a,.chip,.card,.nav-tab,.login-tab{cursor:pointer;-webkit-tap-highlight-color:transparent;}
+img{max-width:100%;}
 
 /* ── PAGE SYSTEM ── */
 .page{display:none;}
 .page.active{display:block;}
 
 /* ── LOGIN PAGE ── */
-.login-page{min-height:100vh;background:linear-gradient(135deg,#2d0b60,#4c1d95,#701a75,#92400e);display:flex;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden;}
-.login-page::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 25% 20%,rgba(168,85,247,0.4),transparent 60%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(236,72,153,0.35),transparent 60%);pointer-events:none;}
+.login-page{min-height:100vh;background:linear-gradient(135deg,#0f172a,#1e1b4b,#164e63,#0891b2);display:flex;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden;}
+.login-page::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 25% 20%,rgba(99,102,241,0.45),transparent 60%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(6,182,212,0.4),transparent 60%);pointer-events:none;}
 .login-box{background:rgba(255,255,255,0.97);border-radius:24px;padding:2.5rem;width:100%;max-width:420px;position:relative;z-index:1;box-shadow:0 30px 80px rgba(0,0,0,0.3);}
 .login-logo{text-align:center;margin-bottom:1.5rem;}
 .login-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:28px;letter-spacing:-0.5px;}
 .login-logo-text .h{background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .login-logo-text .c{background:linear-gradient(90deg,var(--pink),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;}
-.login-gem{width:12px;height:12px;background:linear-gradient(135deg,var(--amber2),var(--pink));border-radius:3px;transform:rotate(45deg);display:inline-block;margin-right:8px;animation:gemPulse 2s infinite;}
-@keyframes gemPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,0.5);}50%{box-shadow:0 0 0 7px rgba(245,158,11,0);}}
+.login-gem{width:12px;height:12px;background:linear-gradient(135deg,var(--purple),var(--pink2));border-radius:3px;transform:rotate(45deg);display:inline-block;margin-right:8px;animation:gemPulse 2s infinite;}
+@keyframes gemPulse{0%,100%{box-shadow:0 0 0 0 rgba(79,70,229,0.5);}50%{box-shadow:0 0 0 7px rgba(79,70,229,0);}}
 .login-subtitle{text-align:center;font-size:13px;color:var(--textm);margin-bottom:1.8rem;}
 .login-tabs{display:flex;background:var(--bg);border-radius:12px;padding:4px;margin-bottom:1.5rem;gap:4px;}
 .login-tab{flex:1;padding:9px;text-align:center;font-size:13px;border-radius:9px;cursor:pointer;border:none;background:transparent;color:var(--textm);font-family:'DM Sans',sans-serif;font-weight:500;transition:all 0.2s;}
@@ -57,7 +62,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 /* ── NAV ── */
 .nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1.5px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:66px;position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(124,58,237,0.07);}
 .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;letter-spacing:0.3px;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--dark);cursor:pointer;}
-.logo-gem{width:12px;height:12px;background:linear-gradient(135deg,var(--amber2),var(--pink));border-radius:3px;transform:rotate(45deg);flex-shrink:0;animation:gemPulse 2s infinite;}
+.logo-gem{width:12px;height:12px;background:linear-gradient(135deg,var(--purple),var(--pink2));border-radius:3px;transform:rotate(45deg);flex-shrink:0;animation:gemPulse 2s infinite;}
 .logo .h{background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .logo .c{background:linear-gradient(90deg,var(--pink),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;}
 .nav-right{display:flex;align-items:center;gap:10px;}
@@ -186,8 +191,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .nav-tab.active{background:var(--bg3);color:var(--purple);border-color:var(--border2);}
 
 /* ── HERO ── */
-.hero{background:linear-gradient(135deg,#2d0b60 0%,#4c1d95 35%,#701a75 65%,#92400e 100%);color:white;padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 25% 20%,rgba(168,85,247,0.4),transparent 60%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(236,72,153,0.35),transparent 60%),radial-gradient(ellipse 40% 35% at 55% 50%,rgba(245,158,11,0.2),transparent 60%);pointer-events:none;}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 30%,#164e63 65%,#0891b2 100%);color:white;padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 25% 20%,rgba(99,102,241,0.45),transparent 60%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(6,182,212,0.4),transparent 60%),radial-gradient(ellipse 40% 35% at 55% 50%,rgba(251,191,36,0.15),transparent 60%);pointer-events:none;}
 .hero-inner{position:relative;z-index:1;}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);color:white;font-size:12px;padding:7px 18px;border-radius:20px;margin-bottom:1.5rem;backdrop-filter:blur(10px);}
 .hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--amber3);animation:blink 1.5s infinite;}
@@ -208,28 +213,28 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 /* ── TOOLBAR ── */
 .toolbar{background:white;border-bottom:1.5px solid var(--border);padding:14px 2rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:sticky;top:66px;z-index:100;box-shadow:0 3px 16px rgba(124,58,237,0.06);}
 .search-box{position:relative;flex:1;min-width:200px;max-width:340px;}
-.search-icon-wrap{position:absolute;left:0;top:0;bottom:0;width:42px;display:flex;align-items:center;justify-content:center;background:#f0ebff;border-radius:11px 0 0 11px;border-right:1.5px solid rgba(124,58,237,0.18);pointer-events:none;z-index:1;}
-.search-icon-wrap svg{width:15px;height:15px;stroke:#7c3aed;stroke-width:2;fill:none;}
-.search-input{width:100%;padding:11px 14px 11px 52px;border:1.5px solid rgba(124,58,237,0.2);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);background:white;outline:none;transition:all 0.2s;}
-.search-input::placeholder{color:#c4b5fd;font-style:italic;}
+.search-icon-wrap{position:absolute;left:0;top:0;bottom:0;width:42px;display:flex;align-items:center;justify-content:center;background:#e0e7ff;border-radius:11px 0 0 11px;border-right:1.5px solid rgba(79,70,229,0.2);pointer-events:none;z-index:1;}
+.search-icon-wrap svg{width:15px;height:15px;stroke:#4f46e5;stroke-width:2;fill:none;}
+.search-input{width:100%;padding:11px 14px 11px 52px;border:1.5px solid rgba(79,70,229,0.2);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);background:white;outline:none;transition:all 0.2s;}
+.search-input::placeholder{color:#a5b4fc;font-style:italic;}
 .search-input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(124,58,237,0.1);}
 .tb-divider{width:1px;height:32px;background:var(--border);flex-shrink:0;}
 .chips{display:flex;gap:7px;flex-wrap:wrap;}
 .chip{padding:8px 15px;border-radius:20px;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all 0.2s;white-space:nowrap;border:1.5px solid transparent;}
-.chip-all{background:#ede9fe;color:#4c1d95;border-color:#c4b5fd;}
-.chip-all:hover,.chip-all.active{background:var(--purple);color:white;border-color:var(--purple);box-shadow:0 4px 12px rgba(124,58,237,0.3);}
+.chip-all{background:#e0e7ff;color:#3730a3;border-color:#a5b4fc;}
+.chip-all:hover,.chip-all.active{background:var(--purple);color:white;border-color:var(--purple);box-shadow:0 4px 12px rgba(79,70,229,0.35);}
 .chip-beg{background:#fef3c7;color:#92400e;border-color:#fde68a;}
-.chip-beg:hover,.chip-beg.active{background:var(--amber2);color:white;border-color:var(--amber2);box-shadow:0 4px 12px rgba(245,158,11,0.3);}
-.chip-int{background:#fce7f3;color:#9d174d;border-color:#f9a8d4;}
-.chip-int:hover,.chip-int.active{background:var(--pink2);color:white;border-color:var(--pink2);box-shadow:0 4px 12px rgba(236,72,153,0.3);}
-.chip-adv{background:#eff6ff;color:#1e40af;border-color:#bfdbfe;}
-.chip-adv:hover,.chip-adv.active{background:#3b82f6;color:white;border-color:#3b82f6;box-shadow:0 4px 12px rgba(59,130,246,0.3);}
+.chip-beg:hover,.chip-beg.active{background:var(--amber2);color:white;border-color:var(--amber2);box-shadow:0 4px 12px rgba(251,191,36,0.35);}
+.chip-int{background:#cffafe;color:#164e63;border-color:#67e8f9;}
+.chip-int:hover,.chip-int.active{background:var(--pink2);color:white;border-color:var(--pink2);box-shadow:0 4px 12px rgba(6,182,212,0.35);}
+.chip-adv{background:#ede9fe;color:#3730a3;border-color:#a5b4fc;}
+.chip-adv:hover,.chip-adv.active{background:var(--purple2);color:white;border-color:var(--purple2);box-shadow:0 4px 12px rgba(99,102,241,0.35);}
 .sort-wrap{position:relative;flex-shrink:0;}
 .sort-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:13px;}
-.sort-select{appearance:none;-webkit-appearance:none;padding:10px 34px 10px 32px;border:1.5px solid rgba(124,58,237,0.2);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:#4c1d95;background:#faf5ff;outline:none;cursor:pointer;transition:all 0.2s;min-width:150px;}
+.sort-select{appearance:none;-webkit-appearance:none;padding:10px 34px 10px 32px;border:1.5px solid rgba(79,70,229,0.2);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:#3730a3;background:#f0f4ff;outline:none;cursor:pointer;transition:all 0.2s;min-width:150px;}
 .sort-select:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(124,58,237,0.08);}
 .sort-arrow{position:absolute;right:11px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:11px;color:var(--purple);}
-.count-badge{background:linear-gradient(135deg,#ede9fe,#fce7f3);color:#4c1d95;font-size:11px;font-weight:600;padding:6px 13px;border-radius:20px;border:1px solid rgba(124,58,237,0.15);white-space:nowrap;font-style:italic;}
+.count-badge{background:linear-gradient(135deg,#e0e7ff,#cffafe);color:#4c1d95;font-size:11px;font-weight:600;padding:6px 13px;border-radius:20px;border:1px solid rgba(124,58,237,0.15);white-space:nowrap;font-style:italic;}
 
 /* ── SECTION ── */
 .section{padding:2.5rem 2rem;}
@@ -243,7 +248,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 /* ── CARDS ── */
 .card{background:white;border:1.5px solid var(--border);border-radius:20px;overflow:hidden;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;animation:cardIn 0.4s ease both;}
 @keyframes cardIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-.card:hover{transform:translateY(-6px);border-color:rgba(219,39,119,0.3);box-shadow:0 20px 50px rgba(124,58,237,0.13);}
+.card:hover{transform:translateY(-6px);border-color:rgba(219,39,119,0.3);box-shadow:0 20px 50px rgba(79,70,229,0.13);}
 .card-thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;}
 .lvl{position:absolute;top:10px;right:10px;font-size:10px;font-weight:600;padding:4px 10px;border-radius:20px;}
 .beg{background:#fef3c7;color:#92400e;}
@@ -284,7 +289,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* ── DASHBOARD ── */
 .dashboard-page{padding:2rem;}
-.dash-header{background:linear-gradient(135deg,#2d0b60,#4c1d95,#701a75);border-radius:20px;padding:2rem;color:white;margin-bottom:2rem;position:relative;overflow:hidden;}
+.dash-header{background:linear-gradient(135deg,#0f172a,#1e1b4b,#164e63);border-radius:20px;padding:2rem;color:white;margin-bottom:2rem;position:relative;overflow:hidden;}
 .dash-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(245,158,11,0.2),transparent 70%);pointer-events:none;}
 .dash-header-inner{position:relative;z-index:1;}
 .dash-welcome{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px;}
@@ -344,7 +349,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 /* ── OVERLAYS ── */
 .overlay{display:none;position:fixed;inset:0;background:rgba(30,11,58,0.62);z-index:300;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(8px);}
 .overlay.show{display:flex;}
-.modal{background:white;border-radius:24px;border:1.5px solid var(--border);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;animation:mIn 0.25s ease;box-shadow:0 30px 80px rgba(124,58,237,0.18);}
+.modal{background:white;border-radius:24px;border:1.5px solid var(--border);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;animation:mIn 0.25s ease;box-shadow:0 30px 80px rgba(79,70,229,0.18);}
 @keyframes mIn{from{opacity:0;transform:scale(0.94) translateY(12px);}to{opacity:1;transform:scale(1) translateY(0);}}
 .mhdr{padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid var(--border);}
 .mhdr-title{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;color:var(--dark);}
@@ -396,7 +401,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .ctlbl{font-family:'Playfair Display',serif;font-weight:700;font-size:15px;color:var(--dark);}
 .ctval{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .success-wrap{text-align:center;padding:2rem 1.5rem;}
-.sr{width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,#ede9fe,#fce7f3);border:2px solid rgba(219,39,119,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;box-shadow:0 0 28px rgba(219,39,119,0.15);}
+.sr{width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,#e0e7ff,#cffafe);border:2px solid rgba(219,39,119,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;box-shadow:0 0 28px rgba(219,39,119,0.15);}
 .sc{font-family:'Playfair Display',serif;font-size:34px;color:var(--pink);font-weight:700;}
 .success-wrap h2{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;background:linear-gradient(90deg,var(--purple),var(--pink),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;}
 .success-wrap h2 em{font-style:italic;font-weight:400;}
@@ -413,16 +418,171 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .progress-slider{width:100%;height:6px;accent-color:var(--purple);}
 .progress-display{text-align:center;font-family:'Playfair Display',serif;font-size:28px;font-weight:700;background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:10px 0;}
 
+/* ══════════════════════════════════════
+   RESPONSIVE — ALL BREAKPOINTS
+   ══════════════════════════════════════ */
+
+/* ── Tablet (≤900px) ── */
+@media(max-width:900px){
+  .hero h1{font-size:3rem;}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));}
+  .nav{padding:0 1.25rem;}
+  .section{padding:2rem 1.25rem;}
+  .dashboard-page{padding:1.5rem 1.25rem;}
+  .dash-stats{gap:8px;}
+  .interview-page{padding:1.5rem;}
+  .interview-hero h2{font-size:1.8rem;}
+  .topic-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));}
+}
+
+/* ── Mobile Large (≤640px) ── */
 @media(max-width:640px){
-  .hero h1{font-size:2.6rem;}
-  .hero-stats{flex-wrap:wrap;}
-  .stat-g{flex:1;min-width:120px;}
-  .toolbar{padding:12px 1rem;}
-  .section{padding:1.5rem 1rem;}
-  .nav{padding:0 1rem;}
-  .search-box{max-width:100%;}
-  .my-course-card{flex-direction:column;}
-  .my-course-actions{flex-direction:row;}
+  /* Hero */
+  .hero{padding:3rem 1rem 2.5rem;}
+  .hero h1{font-size:2.2rem;letter-spacing:-1px;}
+  .hero-sub{font-size:14px;}
+  .hero p{font-size:13px;margin-bottom:1.5rem;}
+  .hero-stats{flex-wrap:wrap;gap:0;}
+  .stat-g{flex:1;min-width:120px;padding:12px 14px;}
+  .stat-n{font-size:18px;}
+  .stat-l{font-size:10px;}
+  .hero-tag{font-size:11px;padding:5px 12px;}
+
+  /* Navbar */
+  .nav{padding:0 0.875rem;height:58px;}
+  .logo{font-size:18px;}
+  .logo-gem{width:10px;height:10px;}
+  .nav-tabs{gap:2px;}
+  .nav-tab{padding:6px 8px;font-size:11px;border-radius:14px;}
+  .nav-btn{padding:7px 10px;font-size:12px;gap:4px;}
+  .nav-btn span:not(.cart-count){display:none;}
+  .notif-btn{width:32px;height:32px;font-size:15px;}
+  .user-avatar{width:30px;height:30px;font-size:12px;}
+
+  /* Notification panel */
+  .notif-panel{width:280px;right:-10px;}
+
+  /* Toolbar */
+  .toolbar{padding:10px 0.875rem;gap:8px;top:58px;}
+  .search-box{max-width:100%;min-width:unset;flex:1;}
+  .search-input{padding:9px 10px 9px 44px;font-size:12px;}
+  .tb-divider{display:none;}
+  .chips{gap:5px;}
+  .chip{padding:6px 10px;font-size:11px;}
+  .sort-select{min-width:110px;font-size:11px;padding:8px 26px 8px 26px;}
+  .count-badge{font-size:10px;padding:5px 10px;}
+
+  /* Cards */
+  .section{padding:1.25rem 0.875rem;}
+  .grid{grid-template-columns:1fr;gap:1rem;}
+  .card-thumb{height:130px;}
+  .card-body{padding:1rem;}
+  .card-title{font-size:14px;}
+  .pm{font-size:17px;}
+  .card-actions{flex-wrap:wrap;gap:6px;}
+  .btn{padding:7px 10px;font-size:11px;}
+
+  /* Modal */
+  .overlay{padding:0.5rem;}
+  .modal{border-radius:18px;max-height:95vh;}
+  .mhdr{padding:1rem 1.25rem;}
+  .mhdr-title{font-size:15px;}
+  .mbody{padding:1.25rem;}
+  .vid-wrap iframe{height:195px;}
+
+  /* Progress tracker */
+  .lpb-pct{font-size:15px;}
+  .live-progress-box{padding:10px 12px;}
+
+  /* Checkout */
+  .pay-tabs{gap:6px;}
+  .ptab{padding:8px;font-size:12px;}
+  .finput{padding:9px 11px;font-size:13px;}
+  .frow{grid-template-columns:1fr 1fr;gap:8px;}
+  .btn-pay{padding:12px;font-size:14px;}
+
+  /* Dashboard */
+  .dashboard-page{padding:1rem 0.875rem;}
+  .dash-header{padding:1.5rem 1.25rem;border-radius:16px;}
+  .dash-welcome{font-size:18px;}
+  .dash-sub{font-size:12px;margin-bottom:1rem;}
+  .dash-stats{gap:6px;flex-wrap:wrap;}
+  .dash-stat{padding:10px 14px;min-width:80px;}
+  .dash-stat-n{font-size:18px;}
+  .dash-stat-l{font-size:10px;}
+  .my-course-card{flex-direction:column;padding:1rem;gap:10px;}
+  .my-course-emoji{width:44px;height:44px;font-size:28px;}
+  .my-course-title{font-size:14px;}
+  .my-course-actions{flex-direction:row;flex-wrap:wrap;gap:6px;}
+  .btn-watch,.btn-update-progress{padding:7px 12px;font-size:11px;}
+  .dash-section-title{font-size:16px;}
+
+  /* Certificate */
+  .cert-card{padding:1.75rem 1.25rem;}
+  .cert-name{font-size:18px;}
+  .cert-course{font-size:14px;}
+  .cert-logo{font-size:15px;}
+
+  /* Reviews */
+  .rating-summary{flex-direction:column;gap:10px;align-items:flex-start;}
+  .rating-big-num{font-size:28px;}
+
+  /* Success modal */
+  .success-wrap{padding:1.5rem 1rem;}
+  .sc{font-size:28px;}
+  .success-wrap h2{font-size:22px;}
+  .bgoto{padding:10px 20px;font-size:14px;}
+
+  /* Interview page */
+  .interview-page{padding:1rem 0.875rem;}
+  .interview-hero{padding:1.75rem 1.25rem;}
+  .interview-hero h2{font-size:1.6rem;}
+  .interview-hero p{font-size:12px;}
+  .interview-stats{gap:8px;}
+  .istat{padding:10px 14px;}
+  .istat-n{font-size:16px;}
+  .istat-l{font-size:10px;}
+  .topic-grid{grid-template-columns:repeat(3,1fr);gap:8px;}
+  .topic-card{padding:0.875rem;}
+  .topic-emoji{font-size:26px;margin-bottom:6px;}
+  .topic-name{font-size:11px;}
+  .topic-count{font-size:10px;}
+  .interview-toolbar{padding:10px 12px;gap:6px;}
+  .diff-chip{padding:5px 10px;font-size:11px;}
+  .interview-search{font-size:12px;padding:7px 12px;}
+  .interview-progress-bar{padding:0.875rem 1rem;gap:10px;flex-wrap:wrap;}
+  .ip-label{font-size:12px;}
+  .ip-pct{font-size:14px;}
+  .ip-counts{font-size:11px;gap:8px;}
+  .q-header{padding:0.875rem 1rem;gap:8px;}
+  .q-text{font-size:13px;}
+  .q-body{padding:0 1rem 1rem;}
+  .q-answer-text{font-size:12px;}
+  .q-code pre{font-size:11px;}
+  .mock-q{font-size:15px;padding:1rem;}
+  .timer-circle{width:64px;height:64px;font-size:18px;}
+}
+
+/* ── Mobile Small (≤400px) ── */
+@media(max-width:400px){
+  .hero h1{font-size:1.9rem;}
+  .nav-tab{font-size:10px;padding:5px 6px;}
+  .grid{grid-template-columns:1fr;}
+  .topic-grid{grid-template-columns:repeat(2,1fr);}
+  .dash-stats{grid-template-columns:1fr 1fr;display:grid;}
+  .frow{grid-template-columns:1fr;}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;}
+  .stat-g{border-right:none!important;border-bottom:1px solid rgba(255,255,255,0.18);}
+  .stat-g:first-child{border-radius:14px 14px 0 0;}
+  .stat-g:last-child{border-radius:0 0 14px 14px;}
+  .card-actions{gap:5px;}
+  .btn{padding:7px 8px;font-size:10px;}
+  .login-box{padding:1.75rem 1.25rem;}
+  .login-logo-text{font-size:22px;}
+  .chips{gap:4px;}
+  .chip{padding:5px 8px;font-size:10px;}
+  .interview-stats{flex-wrap:wrap;}
+  .istat{min-width:80px;}
 }
 </style>
 </head>
@@ -445,26 +605,26 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <div id="login-form">
         <div class="form-group">
           <label class="form-label">Email Address</label>
-          <input class="form-input" type="email" id="login-email" placeholder="you@example.com">
+          <input class="form-input" type="email" id="login-email" placeholder="you@example.com" onkeydown="if(event.key==='Enter')document.getElementById('login-password').focus()">
         </div>
         <div class="form-group">
           <label class="form-label">Password</label>
-          <input class="form-input" type="password" id="login-password" placeholder="••••••••">
+          <input class="form-input" type="password" id="login-password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
         </div>
         <button class="btn-login" onclick="doLogin()">Sign In →</button>
       </div>
       <div id="register-form" style="display:none;">
         <div class="form-group">
           <label class="form-label">Full Name</label>
-          <input class="form-input" type="text" id="reg-name" placeholder="Your Full Name">
+          <input class="form-input" type="text" id="reg-name" placeholder="Your Full Name" onkeydown="if(event.key==='Enter')document.getElementById('reg-email').focus()">
         </div>
         <div class="form-group">
           <label class="form-label">Email Address</label>
-          <input class="form-input" type="email" id="reg-email" placeholder="you@example.com">
+          <input class="form-input" type="email" id="reg-email" placeholder="you@example.com" onkeydown="if(event.key==='Enter')document.getElementById('reg-password').focus()">
         </div>
         <div class="form-group">
           <label class="form-label">Password</label>
-          <input class="form-input" type="password" id="reg-password" placeholder="Create a password">
+          <input class="form-input" type="password" id="reg-password" placeholder="Create a password" onkeydown="if(event.key==='Enter')doRegister()">
         </div>
         <button class="btn-login" onclick="doRegister()">Create Account →</button>
       </div>
@@ -534,7 +694,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         <button class="chip chip-beg" data-level="Beginner" onclick="setLevel(this)">🌱 Beginner</button>
         <button class="chip chip-int" data-level="Intermediate" onclick="setLevel(this)">🔥 Intermediate</button>
         <button class="chip chip-adv" data-level="Advanced" onclick="setLevel(this)">⚡ Advanced</button>
-        <button class="chip chip-int" data-level="interview" onclick="setLevel(this)" style="background:#fce7f3;color:#9d174d;border-color:#f9a8d4;">🎯 Interview Prep</button>
       </div>
       <div class="tb-divider"></div>
       <div class="sort-wrap">
@@ -1678,7 +1837,7 @@ document.querySelectorAll('.overlay').forEach(o=>{
 <style>
 /* NAV TAB already exists — just add interview tab styles */
 .interview-page{padding:2rem;max-width:1100px;margin:0 auto;}
-.interview-hero{background:linear-gradient(135deg,#0f172a,#1e1b4b,#312e81);border-radius:20px;padding:2.5rem;color:white;margin-bottom:2rem;position:relative;overflow:hidden;text-align:center;}
+.interview-hero{background:linear-gradient(135deg,#0f172a,#1e1b4b,#164e63);border-radius:20px;padding:2.5rem;color:white;margin-bottom:2rem;position:relative;overflow:hidden;text-align:center;}
 .interview-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 30% 30%,rgba(99,102,241,0.4),transparent 60%),radial-gradient(ellipse 50% 60% at 75% 75%,rgba(236,72,153,0.3),transparent 60%);pointer-events:none;}
 .interview-hero-inner{position:relative;z-index:1;}
 .interview-hero h2{font-family:'Playfair Display',serif;font-weight:900;font-size:2.2rem;letter-spacing:-1px;margin-bottom:8px;}
@@ -1710,9 +1869,9 @@ document.querySelectorAll('.overlay').forEach(o=>{
 .diff-medium.active,.diff-medium:hover{background:var(--amber2);color:white;border-color:var(--amber2);}
 .diff-hard{background:#fce7f3;color:#9d174d;border-color:#f9a8d4;}
 .diff-hard.active,.diff-hard:hover{background:var(--pink2);color:white;border-color:var(--pink2);}
-.interview-search{flex:1;min-width:160px;padding:8px 14px;border:1.5px solid rgba(124,58,237,0.2);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;}
+.interview-search{flex:1;min-width:160px;padding:8px 14px;border:1.5px solid rgba(79,70,229,0.2);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;}
 .interview-search:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(124,58,237,0.08);}
-.interview-search::placeholder{color:#c4b5fd;font-style:italic;}
+.interview-search::placeholder{color:#a5b4fc;font-style:italic;}
 
 /* Question cards */
 .q-list{display:flex;flex-direction:column;gap:10px;}
@@ -1783,6 +1942,54 @@ document.querySelectorAll('.overlay').forEach(o=>{
 .mock-answer-input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(124,58,237,0.08);}
 .mock-nav{display:flex;gap:8px;justify-content:space-between;align-items:center;}
 .mock-progress-text{font-size:13px;color:var(--textm);font-family:'Playfair Display',serif;font-style:italic;}
+/* ── FLASHCARD SUB-TABS ── */
+.interview-subtabs{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap;}
+.isub-tab{padding:9px 20px;border-radius:22px;font-size:13px;font-weight:500;cursor:pointer;border:1.5px solid var(--border);background:white;color:var(--textm);font-family:'DM Sans',sans-serif;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
+.isub-tab:hover{border-color:var(--purple);color:var(--purple);}
+.isub-tab.active{background:linear-gradient(135deg,var(--purple),var(--pink2));color:white;border-color:transparent;box-shadow:0 4px 14px rgba(79,70,229,0.28);}
+
+/* ── FLASHCARDS ── */
+.fc-wrap{max-width:680px;margin:0 auto;}
+.fc-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.25rem;}
+.fc-chip{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1.5px solid var(--border);background:white;color:var(--textm);font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.fc-chip.active{background:var(--purple);color:white;border-color:var(--purple);}
+.fc-chip:hover:not(.active){border-color:var(--purple);color:var(--purple);}
+.fc-counter{font-size:12px;color:var(--textl);font-style:italic;margin-bottom:1rem;}
+.fc-scene{perspective:1000px;width:100%;height:260px;cursor:pointer;margin-bottom:1.25rem;user-select:none;}
+.fc-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform 0.55s cubic-bezier(0.4,0.2,0.2,1);}
+.fc-card.flipped{transform:rotateY(180deg);}
+.fc-face{position:absolute;inset:0;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 8px 32px rgba(79,70,229,0.15);}
+.fc-front{background:linear-gradient(135deg,#0f172a,#1e1b4b,#164e63);border:1.5px solid rgba(255,255,255,0.1);}
+.fc-back{background:white;border:1.5px solid var(--border);transform:rotateY(180deg);}
+.fc-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;font-weight:600;}
+.fc-front .fc-label{color:rgba(255,255,255,0.45);}
+.fc-back .fc-label{color:var(--purple);}
+.fc-question{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;text-align:center;line-height:1.5;}
+.fc-front .fc-question{color:white;}
+.fc-back .fc-question{color:var(--dark);font-size:14px;font-weight:400;font-style:italic;line-height:1.7;}
+.fc-topic-tag{margin-top:1rem;font-size:10px;padding:3px 12px;border-radius:20px;font-weight:600;}
+.fc-front .fc-topic-tag{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);}
+.fc-back .fc-topic-tag{background:var(--bg2);color:var(--purple);}
+.fc-hint{font-size:11px;margin-top:0.75rem;opacity:0.45;}
+.fc-front .fc-hint{color:white;}
+.fc-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:1.25rem;}
+.fc-nav-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--border);background:white;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;box-shadow:0 2px 8px rgba(79,70,229,0.08);}
+.fc-nav-btn:hover{background:var(--bg2);border-color:var(--purple);}
+.fc-pos{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:var(--purple);min-width:80px;text-align:center;}
+.fc-know-btns{display:flex;gap:12px;justify-content:center;margin-bottom:1.25rem;}
+.fc-know{flex:1;max-width:200px;padding:11px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.2s;border:1.5px solid;}
+.fc-yes{background:#dcfce7;color:#166534;border-color:#bbf7d0;}
+.fc-yes:hover{background:#16a34a;color:white;border-color:#16a34a;}
+.fc-no{background:#fef2f2;color:#dc2626;border-color:#fecaca;}
+.fc-no:hover{background:#dc2626;color:white;border-color:#dc2626;}
+.fc-stats{background:white;border:1.5px solid var(--border);border-radius:14px;padding:1rem 1.25rem;display:flex;gap:0;justify-content:space-around;}
+.fc-stat{text-align:center;flex:1;}
+.fc-stat:not(:last-child){border-right:1px solid var(--border);}
+.fc-stat-n{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;}
+.fc-stat-l{font-size:11px;color:var(--textl);margin-top:3px;}
+.fc-stat.known .fc-stat-n{color:#16a34a;}
+.fc-stat.review .fc-stat-n{color:#dc2626;}
+.fc-stat.unseen .fc-stat-n{color:var(--textl);}
 </style>
 
 <!-- INTERVIEW TAB HTML — injected by JS -->
@@ -2603,6 +2810,57 @@ git cherry-pick abc123..ghi789
 # ❌ Don't overuse — prefer proper merges`},
 ];
 
+// ══════════════════════════════════════
+// FLASHCARD DATA
+// ══════════════════════════════════════
+const flashcards = [
+  // Python
+  {id:1,topic:'Python',q:'What is a decorator in Python?',a:'A function that takes another function as input, wraps it with extra behaviour, and returns the modified function. Used with the @syntax.',emoji:'🐍'},
+  {id:2,topic:'Python',q:'Difference between list and tuple?',a:'Lists are mutable (changeable) using []. Tuples are immutable (fixed) using (). Tuples are faster and can be used as dict keys.',emoji:'🐍'},
+  {id:3,topic:'Python',q:'What is a generator?',a:'A function that uses yield to return values one at a time lazily, saving memory. Each call to next() resumes from where it left off.',emoji:'🐍'},
+  {id:4,topic:'Python',q:'What does *args and **kwargs mean?',a:'*args collects extra positional arguments into a tuple. **kwargs collects extra keyword arguments into a dictionary.',emoji:'🐍'},
+  {id:5,topic:'Python',q:'What is the GIL?',a:'Global Interpreter Lock — allows only one Python thread to execute bytecode at a time. Use multiprocessing for true parallelism on CPU-bound tasks.',emoji:'🐍'},
+  {id:6,topic:'Python',q:'What is list comprehension?',a:'A concise way to create lists: [expr for item in iterable if condition]. Faster and more readable than a traditional for loop.',emoji:'🐍'},
+  // JavaScript
+  {id:7,topic:'JavaScript',q:'What is a closure?',a:'A function that retains access to variables from its outer scope even after the outer function has returned. Enables data privacy.',emoji:'⚡'},
+  {id:8,topic:'JavaScript',q:'Difference between == and ===?',a:'== checks value equality with type coercion. === checks both value AND type without coercion. Always prefer ===.',emoji:'⚡'},
+  {id:9,topic:'JavaScript',q:'What is the Event Loop?',a:'Mechanism allowing JS to perform non-blocking ops. When the call stack is empty, it moves callbacks from the queue to the stack.',emoji:'⚡'},
+  {id:10,topic:'JavaScript',q:'What is Promise.all()?',a:'Takes an array of promises, resolves when ALL resolve, rejects immediately if ANY reject. Used to run async ops in parallel.',emoji:'⚡'},
+  {id:11,topic:'JavaScript',q:'What is event delegation?',a:'Attaching one listener to a parent instead of many to children. Works via event bubbling. Better performance and handles dynamic elements.',emoji:'⚡'},
+  {id:12,topic:'JavaScript',q:'var vs let vs const?',a:'var: function-scoped, hoisted. let: block-scoped, reassignable. const: block-scoped, cannot be reassigned. Use const by default.',emoji:'⚡'},
+  // React
+  {id:13,topic:'React',q:'What is the Virtual DOM?',a:'A lightweight in-memory copy of the real DOM. React diffs old vs new virtual DOM and only updates changed nodes in the real DOM.',emoji:'⚛️'},
+  {id:14,topic:'React',q:'What does useEffect do?',a:'Runs side effects after render. Accepts a dependency array — runs on mount if [], on every render if omitted, or when deps change.',emoji:'⚛️'},
+  {id:15,topic:'React',q:'Props vs State?',a:'Props: read-only, passed from parent. State: internal, mutable, managed with useState. Both trigger re-render when changed.',emoji:'⚛️'},
+  {id:16,topic:'React',q:'What is useMemo?',a:'Memoizes a computed value, only recalculates when dependencies change. Prevents expensive recalculations on every render.',emoji:'⚛️'},
+  // DSA
+  {id:17,topic:'DSA',q:'What is Big O notation?',a:'Describes algorithm complexity relative to input size n. O(1) constant, O(log n) log, O(n) linear, O(n²) quadratic, O(2ⁿ) exponential.',emoji:'🔢'},
+  {id:18,topic:'DSA',q:'Stack vs Queue?',a:'Stack: LIFO (Last In First Out) — like a pile of plates. Queue: FIFO (First In First Out) — like a line of people.',emoji:'🔢'},
+  {id:19,topic:'DSA',q:'What is binary search?',a:'Finds a target in a sorted array by halving the search space each time. O(log n) time. Requires sorted input.',emoji:'🔢'},
+  {id:20,topic:'DSA',q:'What is dynamic programming?',a:'Solves problems by breaking into overlapping subproblems and storing results (memoization/tabulation) to avoid recomputation.',emoji:'🔢'},
+  // SQL
+  {id:21,topic:'SQL',q:'WHERE vs HAVING?',a:'WHERE filters rows BEFORE grouping. HAVING filters AFTER GROUP BY. Use HAVING with aggregate functions like COUNT, SUM.',emoji:'🗄️'},
+  {id:22,topic:'SQL',q:'What is an index?',a:'A data structure that speeds up data retrieval at the cost of storage. Works like a book index — jumps to rows directly instead of scanning.',emoji:'🗄️'},
+  {id:23,topic:'SQL',q:'What are ACID properties?',a:'Atomicity (all or nothing), Consistency (valid state), Isolation (no interference), Durability (persists after crash). Guarantee reliable transactions.',emoji:'🗄️'},
+  {id:24,topic:'SQL',q:'INNER vs LEFT JOIN?',a:'INNER JOIN: only matching rows from both tables. LEFT JOIN: all rows from left table + matching from right (NULL if no match).',emoji:'🗄️'},
+  // System Design
+  {id:25,topic:'System Design',q:'Horizontal vs Vertical scaling?',a:'Vertical: add more resources to one server (limited). Horizontal: add more servers (unlimited, fault-tolerant, preferred for large systems).',emoji:'🏗️'},
+  {id:26,topic:'System Design',q:'What is a CDN?',a:'Content Delivery Network — distributed servers that cache static content geographically close to users. Reduces latency and origin server load.',emoji:'🏗️'},
+  {id:27,topic:'System Design',q:'What is caching?',a:'Storing frequently accessed data in fast storage (Redis/Memcached) to reduce latency and DB load. Use Cache-Aside pattern most commonly.',emoji:'🏗️'},
+  // HR
+  {id:28,topic:'HR',q:'How to answer "Tell me about yourself"?',a:'Use Present-Past-Future: current role/skills → key past achievement → why you want this role. Keep it under 90 seconds. Focus on value.',emoji:'🤝'},
+  {id:29,topic:'HR',q:'What is the STAR method?',a:'Situation → Task → Action → Result. A structured way to answer behavioural questions with concrete examples and measurable outcomes.',emoji:'🤝'},
+  {id:30,topic:'HR',q:'How to answer "greatest weakness"?',a:'Pick a real weakness, show self-awareness, describe steps you are taking to improve, show progress. Never say "I work too hard."',emoji:'🤝'},
+];
+
+// ══ FLASHCARD STATE ══
+let fcFiltered = [...flashcards];
+let fcIndex = 0;
+let fcFlipped = false;
+let fcKnown = new Set();
+let fcReview = new Set();
+let fcActiveTopic = 'All';
+
 // ══ INTERVIEW STATE ══
 let activeTopic = 'all';
 let activeDiff = 'all';
@@ -2613,6 +2871,9 @@ let myAnswers = JSON.parse(localStorage.getItem('hc_my_answers')||'{}');
 let mockSession = {questions:[], current:0, answers:[], timer:null};
 
 // ══ RENDER INTERVIEW PAGE ══
+// ══ ACTIVE SUBTAB ══
+let activeInterviewSubtab = 'questions';
+
 function renderInterviewPage() {
   const tab = document.getElementById('interview-tab');
   if(!tab) return;
@@ -2630,8 +2891,8 @@ function renderInterviewPage() {
         <p>Master ${totalQ} curated interview questions across 8 topics. Practice with real code examples and track your progress.</p>
         <div class="interview-stats">
           <div class="istat"><div class="istat-n">${totalQ}</div><div class="istat-l">Questions</div></div>
+          <div class="istat"><div class="istat-n">${flashcards.length}</div><div class="istat-l">Flashcards</div></div>
           <div class="istat"><div class="istat-n">${totalAnswered}</div><div class="istat-l">Answered</div></div>
-          <div class="istat"><div class="istat-n">${totalReview}</div><div class="istat-l">To Review</div></div>
           <div class="istat"><div class="istat-n">${pct}%</div><div class="istat-l">Complete</div></div>
           <div class="istat" style="cursor:pointer;border-color:rgba(253,230,138,0.5);" onclick="startMockInterview()"><div class="istat-n" style="font-size:16px;">🎯 Mock</div><div class="istat-l">Start Interview</div></div>
         </div>
@@ -2649,21 +2910,133 @@ function renderInterviewPage() {
       </div>
     </div>
 
-    <div class="dash-section-title" style="margin-bottom:1rem;">📚 Topics</div>
-    <div class="topic-grid" id="topic-grid">${renderTopics()}</div>
-
-    <div class="interview-toolbar">
-      <input class="interview-search" type="text" placeholder="Search questions..." id="q-search" oninput="filterQuestions()">
-      <button class="diff-chip diff-all active" data-d="all" onclick="setDiff(this)">All</button>
-      <button class="diff-chip diff-easy" data-d="Easy" onclick="setDiff(this)">Easy</button>
-      <button class="diff-chip diff-medium" data-d="Medium" onclick="setDiff(this)">Medium</button>
-      <button class="diff-chip diff-hard" data-d="Hard" onclick="setDiff(this)">Hard</button>
+    <!-- SUB-TABS -->
+    <div class="interview-subtabs">
+      <button class="isub-tab${activeInterviewSubtab==='questions'?' active':''}" onclick="switchInterviewSubtab('questions')">📋 Interview Questions</button>
+      <button class="isub-tab${activeInterviewSubtab==='flashcards'?' active':''}" onclick="switchInterviewSubtab('flashcards')">🃏 Flashcards</button>
     </div>
 
-    <div class="q-list" id="q-list"></div>
+    <!-- QUESTIONS PANEL -->
+    <div id="subtab-questions" style="display:${activeInterviewSubtab==='questions'?'block':'none'};">
+      <div class="dash-section-title" style="margin-bottom:1rem;">📚 Topics</div>
+      <div class="topic-grid" id="topic-grid">${renderTopics()}</div>
+      <div class="interview-toolbar">
+        <input class="interview-search" type="text" placeholder="Search questions..." id="q-search" oninput="filterQuestions()">
+        <button class="diff-chip diff-all active" data-d="all" onclick="setDiff(this)">All</button>
+        <button class="diff-chip diff-easy" data-d="Easy" onclick="setDiff(this)">Easy</button>
+        <button class="diff-chip diff-medium" data-d="Medium" onclick="setDiff(this)">Medium</button>
+        <button class="diff-chip diff-hard" data-d="Hard" onclick="setDiff(this)">Hard</button>
+      </div>
+      <div class="q-list" id="q-list"></div>
+    </div>
+
+    <!-- FLASHCARDS PANEL -->
+    <div id="subtab-flashcards" style="display:${activeInterviewSubtab==='flashcards'?'block':'none'};">
+      ${renderFlashcardHTML()}
+    </div>
   </div>`;
 
-  filterQuestions();
+  if(activeInterviewSubtab==='questions') filterQuestions();
+}
+
+function switchInterviewSubtab(tab) {
+  activeInterviewSubtab = tab;
+  renderInterviewPage();
+}
+
+
+
+// ══ FLASHCARD FUNCTIONS ══
+function renderFlashcardHTML() {
+  const topics = ['All', ...new Set(flashcards.map(f=>f.topic))];
+  const filtered = fcActiveTopic==='All' ? flashcards : flashcards.filter(f=>f.topic===fcActiveTopic);
+  if(fcIndex >= filtered.length) fcIndex = 0;
+  fcFiltered = filtered;
+  const card = filtered[fcIndex] || flashcards[0];
+  const knownCount = fcKnown.size;
+  const reviewCount = fcReview.size;
+  const unseenCount = filtered.length - knownCount - reviewCount;
+
+  return `
+  <div class="fc-wrap">
+    <div class="fc-filter">
+      ${topics.map(t=>`<button class="fc-chip${fcActiveTopic===t?' active':''}" onclick="setFcTopic('${t}')">${t}</button>`).join('')}
+    </div>
+    <div class="fc-counter">${fcIndex+1} of ${filtered.length} cards ${fcActiveTopic!=='All'?'· '+fcActiveTopic:''}</div>
+    <div class="fc-scene" onclick="flipFc()">
+      <div class="fc-card${fcFlipped?' flipped':''}" id="fc-card">
+        <div class="fc-face fc-front">
+          <div class="fc-label">Question</div>
+          <div class="fc-question">${card.q}</div>
+          <span class="fc-topic-tag">${card.emoji} ${card.topic}</span>
+          <div class="fc-hint">Click to reveal answer</div>
+        </div>
+        <div class="fc-face fc-back">
+          <div class="fc-label">Answer</div>
+          <div class="fc-question">${card.a}</div>
+          <span class="fc-topic-tag">${card.emoji} ${card.topic}</span>
+        </div>
+      </div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-nav-btn" onclick="fcPrev()">←</button>
+      <div class="fc-pos">${fcIndex+1} / ${filtered.length}</div>
+      <button class="fc-nav-btn" onclick="fcNext()">→</button>
+    </div>
+    <div class="fc-know-btns">
+      <button class="fc-know fc-yes" onclick="fcMarkKnown()">✓ I Know This</button>
+      <button class="fc-know fc-no" onclick="fcMarkReview()">✗ Review Again</button>
+    </div>
+    <div class="fc-stats">
+      <div class="fc-stat known"><div class="fc-stat-n">${knownCount}</div><div class="fc-stat-l">✅ Known</div></div>
+      <div class="fc-stat review"><div class="fc-stat-n">${reviewCount}</div><div class="fc-stat-l">🔁 Review</div></div>
+      <div class="fc-stat unseen"><div class="fc-stat-n">${unseenCount < 0 ? 0 : unseenCount}</div><div class="fc-stat-l">📋 Unseen</div></div>
+    </div>
+  </div>`;
+}
+
+function refreshFlashcards() {
+  const panel = document.getElementById('subtab-flashcards');
+  if(panel && activeInterviewSubtab==='flashcards') panel.innerHTML = renderFlashcardHTML();
+}
+
+function setFcTopic(topic) {
+  fcActiveTopic = topic;
+  fcIndex = 0;
+  fcFlipped = false;
+  refreshFlashcards();
+}
+
+function flipFc() {
+  fcFlipped = !fcFlipped;
+  const card = document.getElementById('fc-card');
+  if(card) card.classList.toggle('flipped', fcFlipped);
+}
+
+function fcNext() {
+  const len = fcFiltered.length;
+  fcIndex = (fcIndex + 1) % len;
+  fcFlipped = false;
+  refreshFlashcards();
+}
+
+function fcPrev() {
+  const len = fcFiltered.length;
+  fcIndex = (fcIndex - 1 + len) % len;
+  fcFlipped = false;
+  refreshFlashcards();
+}
+
+function fcMarkKnown() {
+  const card = fcFiltered[fcIndex];
+  if(card) { fcKnown.add(card.id); fcReview.delete(card.id); }
+  fcNext();
+}
+
+function fcMarkReview() {
+  const card = fcFiltered[fcIndex];
+  if(card) { fcReview.add(card.id); fcKnown.delete(card.id); }
+  fcNext();
 }
 
 function renderTopics() {
